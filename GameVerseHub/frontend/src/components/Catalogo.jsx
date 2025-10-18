@@ -1,29 +1,59 @@
 ﻿import { useEffect, useState } from "react";
-import { getCatalogo } from "../services/dataService";
+import { getJuegos } from "../services/dataService.js";
 
 export default function Catalogo() {
     const [juegos, setJuegos] = useState([]);
     const [filtro, setFiltro] = useState("");
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        getCatalogo().then(setJuegos);
-    }, []);
+        if (filtro.trim() === "") {
+            setJuegos([]);
+            return;
+        }
 
-    const filtrados = juegos.filter(j => j.nombre.toLowerCase().includes(filtro.toLowerCase()) || j.genero.toLowerCase().includes(filtro.toLowerCase()));
+        setLoading(true);
+
+        const timeoutId = setTimeout(() => {
+            getJuegos(filtro).then(data => {
+                setJuegos(data);
+                setLoading(false);
+            });
+        }, 500);
+
+        return () => clearTimeout(timeoutId);
+
+    }, [filtro]);
 
     return (
-        <div className="container">
+        <div className="container mt-4">
             <h2>Catálogo de Juegos</h2>
-            <input className="form-control mb-3" placeholder="Buscar juego..." value={filtro} onChange={e => setFiltro(e.target.value)} />
+            <input
+                className="form-control mb-3"
+                placeholder="Buscar juego..."
+                value={filtro}
+                onChange={e => setFiltro(e.target.value)}
+            />
+
+            {loading && <p>Cargando juegos...</p>}
+
             <div className="row">
-                {filtrados.map(j => (
+                {juegos.map(j => (
                     <div className="col-md-4 mb-3" key={j.id}>
                         <div className="card">
-                            <img src={j.img} className="card-img-top" alt={j.nombre} />
+                            {j.cover?.url && (
+                                <img
+                                    src={j.cover.url.replace("t_thumb", "t_cover_big")}
+                                    className="card-img-top"
+                                    alt={j.name}
+                                />
+                            )}
                             <div className="card-body">
-                                <h5 className="card-title">{j.nombre}</h5>
-                                <p className="card-text">{j.descripcion}</p>
-                                <span className="badge bg-primary">{j.genero}</span>
+                                <h5 className="card-title">{j.name}</h5>
+                                <p className="card-text">{j.summary}</p>
+                                {j.genres?.map(g => (
+                                    <span key={g.id} className="badge bg-primary me-1">{g.name}</span>
+                                ))}
                             </div>
                         </div>
                     </div>

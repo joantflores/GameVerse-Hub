@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}

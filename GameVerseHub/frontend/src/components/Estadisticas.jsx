@@ -1,18 +1,29 @@
-﻿import { useEffect, useState } from "react";
-import { getEstadisticas } from "../services/dataService";
+﻿// Estadisticas.jsx
+import React, { useEffect, useState } from "react";
+
+// Datos de ejemplo
+const estadisticasFicticias = [
+    { jugador: "Alice", partidas_jugadas: 120, victorias: 85 },
+    { jugador: "Bob", partidas_jugadas: 95, victorias: 50 },
+    { jugador: "Charlie", partidas_jugadas: 150, victorias: 100 },
+];
 
 export default function Estadisticas() {
-    const [stats, setStats] = useState([]);
+    const [estadisticas, setEstadisticas] = useState([]);
 
+    // Simular carga de datos
     useEffect(() => {
-        getEstadisticas().then(setStats);
+        // Aquí podrías reemplazarlo con fetch si fuera real
+        setTimeout(() => {
+            setEstadisticas(estadisticasFicticias);
+        }, 300); // Simula un pequeño delay
     }, []);
 
     return (
-        <div className="container">
+        <div className="container mt-4">
             <h2>Estadísticas de Jugadores</h2>
-            <table className="table table-striped mt-3">
-                <thead className="table-dark">
+            <table className="table table-striped">
+                <thead>
                     <tr>
                         <th>Jugador</th>
                         <th>Partidas</th>
@@ -21,24 +32,15 @@ export default function Estadisticas() {
                     </tr>
                 </thead>
                 <tbody>
-                    {stats.map(j => (
-                        <tr key={j.id}>
+                    {estadisticas.map((j, i) => (
+                        <tr key={i}>
                             <td>{j.jugador}</td>
-                            <td>{j.partidas}</td>
+                            <td>{j.partidas_jugadas}</td>
                             <td>{j.victorias}</td>
                             <td>
-                                <div className="progress">
-                                    <div
-                                        className="progress-bar bg-success"
-                                        role="progressbar"
-                                        style={{ width: `${(j.victorias / j.partidas) * 100}%` }}
-                                        aria-valuenow={(j.victorias / j.partidas) * 100}
-                                        aria-valuemin="0"
-                                        aria-valuemax="100"
-                                    >
-                                        {Math.round((j.victorias / j.partidas) * 100)}%
-                                    </div>
-                                </div>
+                                {j.partidas_jugadas > 0
+                                    ? ((j.victorias / j.partidas_jugadas) * 100).toFixed(1) + "%"
+                                    : "0%"}
                             </td>
                         </tr>
                     ))}
