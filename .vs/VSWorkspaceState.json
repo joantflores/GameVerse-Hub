@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\GameVerseHub",
+    "\\GameVerseHub\\backend",
+    "\\GameVerseHub\\backend\\controllers",
+    "\\GameVerseHub\\backend\\routes",
+    "\\GameVerseHub\\backend\\services"
+  ],
+  "PreviewInSolutionExplorer": false
+}

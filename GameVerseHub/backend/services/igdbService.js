@@ -2,22 +2,60 @@
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import { existsSync } from "fs";
 
 // Asegurar ruta absoluta
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-console.log("✅ CLIENT_ID:", process.env.TWITCH_CLIENT_ID);
-console.log("✅ CLIENT_SECRET:", process.env.TWITCH_CLIENT_SECRET);
+// Prioridad: Variables de entorno del sistema > archivo .env
+// En servidores/producción, las variables de entorno del sistema tienen prioridad
+// El archivo .env solo se usa en desarrollo local
 
+// Primero verificar si ya hay variables de entorno del sistema (producción)
+const tieneEnvSistema = process.env.TWITCH_CLIENT_ID && process.env.TWITCH_CLIENT_SECRET;
+
+// Solo cargar .env si no hay variables de entorno del sistema (desarrollo local)
+if (!tieneEnvSistema) {
+    const envPath = path.resolve(__dirname, "../.env");
+    if (existsSync(envPath)) {
+        dotenv.config({ path: envPath });
+        console.log("📄 Archivo .env cargado (modo desarrollo)");
+    } else {
+        console.log("ℹ️  No se encontró archivo .env");
+    }
+}
+
+// Verificar credenciales (pueden venir de variables de entorno del sistema o .env)
+const CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+const CLIENT_SECRET = process.env.TWITCH_CLIENT_SECRET;
+const tieneCredenciales = CLIENT_ID && CLIENT_SECRET;
+
+// Detectar si estamos en producción o desarrollo
+const esProduccion = process.env.NODE_ENV === 'production' || !existsSync(path.resolve(__dirname, "../.env"));
+
+if (tieneCredenciales) {
+    const fuente = esProduccion ? "variables de entorno del sistema" : "archivo .env";
+    console.log(`✅ Credenciales de Twitch encontradas (${fuente})`);
+    console.log("✅ CLIENT_ID:", CLIENT_ID.substring(0, 8) + "...");
+} else {
+    console.error("❌ ERROR: No se encontraron credenciales de Twitch");
+    if (esProduccion) {
+        console.error("💡 Para usar la API de IGDB, configura las variables de entorno:");
+        console.error("   TWITCH_CLIENT_ID y TWITCH_CLIENT_SECRET");
+    } else {
+        console.error("💡 Para usar la API de IGDB, crea un archivo .env en backend/ con:");
+        console.error("   TWITCH_CLIENT_ID=tu_client_id");
+        console.error("   TWITCH_CLIENT_SECRET=tu_client_secret");
+    }
+}
 
 // Obtener token de Twitch para IGDB
 async function obtenerToken() {
     try {
         console.log("Obteniendo token de Twitch...");
         const response = await fetch(
-            `https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_CLIENT_ID}&client_secret=${process.env.TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,
+            `https://id.twitch.tv/oauth2/token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=client_credentials`,
             { method: "POST" }
         );
 
@@ -35,46 +73,47 @@ async function obtenerToken() {
 
 // Buscar juegos en IGDB
 export async function buscarJuegos(nombre) {
+    // Verificar que haya credenciales
+    if (!tieneCredenciales) {
+        const error = new Error("Credenciales de Twitch no configuradas. Configura TWITCH_CLIENT_ID y TWITCH_CLIENT_SECRET.");
+        error.code = "NO_CREDENTIALS";
+        throw error;
+    }
+
     try {
         const token = await obtenerToken();
 
         const response = await fetch("https://api.igdb.com/v4/games", {
             method: "POST",
             headers: {
-                "Client-ID": process.env.TWITCH_CLIENT_ID,
+                "Client-ID": CLIENT_ID,
                 "Authorization": `Bearer ${token}`,
                 "Accept": "application/json"
             },
             body: `search "${nombre}"; fields name, genres.name, first_release_date, summary, cover.url; limit 5;`
         });
 
-        console.log("Buscando juego:", nombre);
-        console.log("Token usado:", token);
-        const juegos = await response.json();
-        console.log("Respuesta IGDB:", juegos);
+        // Verificar si la respuesta es exitosa
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(`Error de IGDB API: ${response.status} ${response.statusText}. ${JSON.stringify(errorData)}`);
+        }
 
-        // Si no hay resultados, devolvemos un ejemplo
+        console.log("🔍 Buscando en IGDB:", nombre);
+        const juegos = await response.json();
+        console.log("✅ Respuesta IGDB recibida:", juegos.length, "juegos encontrados");
+
+        // Si no hay resultados, devolver array vacío
         if (!Array.isArray(juegos) || juegos.length === 0) {
-            return [{
-                id: 999,
-                name: "Juego de prueba",
-                summary: "No se obtuvieron datos de IGDB.",
-                genres: [{ id: 1, name: "Demo" }],
-                cover: { url: null }
-            }];
+            console.log("ℹ️  No se encontraron juegos para:", nombre);
+            return [];
         }
 
         return juegos;
 
     } catch (error) {
-        console.error("Error al buscar juegos:", error.message);
-        return [{
-            id: 999,
-            name: "Juego de prueba",
-            summary: "Hubo un error al obtener datos de IGDB.",
-            genres: [{ id: 1, name: "Demo" }],
-            cover: { url: null }
-        }];
+        console.error("❌ Error al buscar juegos en IGDB:", error.message);
+        throw error;
     }
 }
 
