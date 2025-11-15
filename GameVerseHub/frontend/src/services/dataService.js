@@ -37,7 +37,7 @@ export async function getJuegos(nombre) {
     if (!nombre || nombre.trim() === "") return [];
 
     try {
-        const response = await fetch(`http://localhost:3000/api/juegos?nombre=${nombre}`);
+        const response = await fetch(`http://localhost:5173/api/juegos?nombre=${nombre}`);
         const data = await response.json();
         return data;
     } catch (err) {

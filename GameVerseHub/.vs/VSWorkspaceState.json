@@ -8,8 +8,9 @@
     "\\frontend",
     "\\frontend\\public",
     "\\frontend\\src",
-    "\\frontend\\src\\components"
+    "\\frontend\\src\\data",
+    "\\frontend\\src\\services"
   ],
-  "SelectedNode": "\\backend\\controllers\\gameController.js",
+  "SelectedNode": "\\frontend\\vite.config.js",
   "PreviewInSolutionExplorer": false
 }
