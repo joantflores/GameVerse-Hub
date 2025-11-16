@@ -11,23 +11,47 @@ export function useToast() {
 export function ToastProvider({ children }) {
   const [toasts, setToasts] = useState([]);
 
+  const removeToast = (id) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
+
   function pushToast(toast) {
-    setToasts((t) => [...t, { id: Date.now(), ...toast }]);
-    // auto-remove after 4s
-    setTimeout(() => {
-      setToasts((t) => t.slice(1));
-    }, 4000);
+    const id = Date.now();
+    const t = {
+      id,
+      mensaje: toast.mensaje ?? toast.body ?? toast.title ?? "",
+      tipo: toast.tipo ?? "info",
+      duracion: toast.duracion ?? 4000,
+      mostrar: true,
+      onCerrar: () => removeToast(id)
+    };
+
+    setToasts((tarr) => [...tarr, t]);
+
+    if (t.duracion > 0) {
+      setTimeout(() => removeToast(id), t.duracion);
+    }
   }
 
   function clearToasts() {
     setToasts([]);
   }
 
+  function success(mensaje, duracion) {
+    pushToast({ mensaje, tipo: "success", duracion });
+  }
+
+  function error(mensaje, duracion) {
+    pushToast({ mensaje, tipo: "error", duracion });
+  }
+
   return (
-    <ToastContext.Provider value={{ pushToast, clearToasts }}>
+    <ToastContext.Provider value={{ pushToast, clearToasts, success, error }}>
       {children}
       <div aria-live="polite" className="toast-container position-fixed bottom-0 end-0 p-3">
-        {toasts.map((t) => <Toast key={t.id} {...t} />)}
+        {toasts.map((t) => (
+          <Toast key={t.id} {...t} />
+        ))}
       </div>
     </ToastContext.Provider>
   );

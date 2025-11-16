@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { iniciarSesion, registrarUsuario } from "../services/authService";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../contexts/ToastContext";
@@ -21,25 +21,37 @@ export default function Login({ esRegistro = false }) {
             let result;
             if (esRegistro) {
                 if (!nombre.trim()) {
-                    setError("El nombre es requerido");
+                    setError("Name is required");
                     setCargando(false);
                     return;
                 }
                 result = await registrarUsuario(email, password, nombre);
+
+                if (result.success) {
+                    // Do not log in automatically after registration
+                    success("Registration successful! Please sign in to continue.");
+                    navigate("/login");
+                    setEmail("");
+                    setPassword("");
+                    setNombre("");
+                    setCargando(false);
+                    return;
+                }
             } else {
                 result = await iniciarSesion(email, password);
+
+                if (result.success) {
+                    success("Welcome back!");
+                    navigate("/");
+                    return;
+                }
             }
 
-            if (result.success) {
-                success(esRegistro ? "¡Registro exitoso! Bienvenido a GameVerse Hub" : "¡Bienvenido de nuevo!");
-                navigate("/");
-            } else {
-                const errorMsg = result.error || "Error al " + (esRegistro ? "registrarse" : "iniciar sesión");
-                setError(errorMsg);
-                toastError(errorMsg);
-            }
+            const errorMsg = result.error || "Error while " + (esRegistro ? "signing up" : "signing in");
+            setError(errorMsg);
+            toastError(errorMsg);
         } catch (err) {
-            setError("Ocurrió un error inesperado");
+            setError("An unexpected error occurred");
             console.error(err);
         } finally {
             setCargando(false);
@@ -53,7 +65,7 @@ export default function Login({ esRegistro = false }) {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="card-title mb-4 text-center">
-                                {esRegistro ? "📝 Registrarse" : "🔐 Iniciar Sesión"}
+                                {esRegistro ? "📝 Sign Up" : "🔐 Sign In"}
                             </h2>
 
                             {error && (
@@ -66,7 +78,7 @@ export default function Login({ esRegistro = false }) {
                                 {esRegistro && (
                                     <div className="mb-3">
                                         <label htmlFor="nombre" className="form-label">
-                                            Nombre
+                                            Name
                                         </label>
                                         <input
                                             type="text"
@@ -74,7 +86,7 @@ export default function Login({ esRegistro = false }) {
                                             id="nombre"
                                             value={nombre}
                                             onChange={(e) => setNombre(e.target.value)}
-                                            placeholder="Tu nombre"
+                                            placeholder="Your name"
                                             required
                                         />
                                     </div>
@@ -90,14 +102,14 @@ export default function Login({ esRegistro = false }) {
                                         id="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="tu@email.com"
+                                        placeholder="you@example.com"
                                         required
                                     />
                                 </div>
 
                                 <div className="mb-3">
                                     <label htmlFor="password" className="form-label">
-                                        Contraseña
+                                        Password
                                     </label>
                                     <input
                                         type="password"
@@ -110,7 +122,7 @@ export default function Login({ esRegistro = false }) {
                                         minLength={6}
                                     />
                                     {esRegistro && (
-                                        <small className="text-muted">Mínimo 6 caracteres</small>
+                                        <small className="text-muted">Minimum 6 characters</small>
                                     )}
                                 </div>
 
@@ -122,10 +134,10 @@ export default function Login({ esRegistro = false }) {
                                     {cargando ? (
                                         <>
                                             <span className="spinner-border spinner-border-sm me-2" role="status"></span>
-                                            {esRegistro ? "Registrando..." : "Iniciando sesión..."}
+                                            {esRegistro ? "Signing up..." : "Signing in..."}
                                         </>
                                     ) : (
-                                        esRegistro ? "Registrarse" : "Iniciar Sesión"
+                                        esRegistro ? "Sign Up" : "Sign In"
                                     )}
                                 </button>
                             </form>
@@ -133,9 +145,9 @@ export default function Login({ esRegistro = false }) {
                             <div className="text-center mt-3">
                                 <small className="text-muted">
                                     {esRegistro ? (
-                                        <>¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a></>
+                                        <>Already have an account? <a href="/login">Sign in here</a></>
                                     ) : (
-                                        <>¿No tienes cuenta? <a href="/registro">Regístrate aquí</a></>
+                                        <>Don't have an account? <a href="/registro">Sign up here</a></>
                                     )}
                                 </small>
                             </div>

@@ -40,7 +40,7 @@ export default function Dashboard() {
                 setFavoritos(favoritosResult.favoritos.slice(0, 6));
             }
         } catch (err) {
-            console.error("Error cargando datos del dashboard:", err);
+            console.error("Error loading dashboard data:", err);
         } finally {
             setCargando(false);
         }
@@ -49,12 +49,12 @@ export default function Dashboard() {
     const formatearFecha = (timestamp) => {
         if (!timestamp) return "";
         if (timestamp instanceof Timestamp) {
-            return timestamp.toDate().toLocaleDateString("es-ES");
+            return timestamp.toDate().toLocaleDateString("en-US");
         }
         if (timestamp.seconds) {
-            return new Date(timestamp.seconds * 1000).toLocaleDateString("es-ES");
+            return new Date(timestamp.seconds * 1000).toLocaleDateString("en-US");
         }
-        return new Date(timestamp).toLocaleDateString("es-ES");
+        return new Date(timestamp).toLocaleDateString("en-US");
     };
 
     if (!usuario) {
@@ -65,17 +65,17 @@ export default function Dashboard() {
                         <div className="text-center py-5">
                             <h1 className="display-4 mb-4">🎮 GameVerse Hub</h1>
                             <p className="lead mb-4">
-                                Tu centro integral para todo sobre videojuegos. Explora catálogos, 
-                                juega trivia y descubre tus juegos favoritos.
+                                Your central hub for everything about video games. Explore catalogs,
+                                play trivia and discover your favorite games.
                             </p>
                             <div className="row g-3 mt-4 justify-content-center">
                                 <div className="col-md-5">
                                     <div className="card h-100">
                                         <div className="card-body text-center">
-                                            <h3>🎯 Catálogo</h3>
-                                            <p>Explora miles de videojuegos con búsqueda avanzada y filtros</p>
+                                            <h3>🎯 Catalog</h3>
+                                            <p>Explore thousands of games with advanced search and filters</p>
                                             <Link to="/catalogo" className="btn btn-primary">
-                                                Explorar Catálogo
+                                                Browse Catalog
                                             </Link>
                                         </div>
                                     </div>
@@ -84,9 +84,9 @@ export default function Dashboard() {
                                     <div className="card h-100">
                                         <div className="card-body text-center">
                                             <h3>🎲 Trivia</h3>
-                                            <p>Pon a prueba tus conocimientos sobre videojuegos</p>
+                                            <p>Test your knowledge about video games</p>
                                             <Link to="/trivia" className="btn btn-primary">
-                                                Jugar Trivia
+                                                Play Trivia
                                             </Link>
                                         </div>
                                     </div>
@@ -94,9 +94,9 @@ export default function Dashboard() {
                             </div>
                             <div className="mt-5">
                                 <p className="text-muted">
-                                    <Link to="/login">Inicia sesión</Link> o{" "}
-                                    <Link to="/registro">regístrate</Link> para guardar tus favoritos 
-                                    y ver tu historial de actividad.
+                                    <Link to="/login">Sign in</Link> or{" "}
+                                    <Link to="/registro">sign up</Link> to save your favorites
+                                    and view your activity history.
                                 </p>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ export default function Dashboard() {
         return (
             <div className="container mt-4 text-center">
                 <div className="spinner-border" role="status">
-                    <span className="visually-hidden">Cargando...</span>
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
         );
@@ -124,20 +124,20 @@ export default function Dashboard() {
         <div className="container mt-4">
             <div className="row mb-4">
                 <div className="col-12">
-                    <h1>👋 ¡Hola, {userData?.displayName || usuario.email}!</h1>
-                    <p className="text-muted">Bienvenido a tu Dashboard</p>
+                    <h1>👋 Hello, {userData?.displayName || usuario.email}!</h1>
+                    <p className="text-muted">Welcome to your Dashboard</p>
                 </div>
             </div>
 
-            {/* Estadísticas rápidas */}
+            {/* Quick stats */}
             <div className="row mb-4">
                 <div className="col-md-4 mb-3">
                     <div className="card text-center">
                         <div className="card-body">
                             <h2 className="display-4">{favoritos.length}</h2>
-                            <p className="card-text">⭐ Juegos Favoritos</p>
+                            <p className="card-text">⭐ Favorite Games</p>
                             <Link to="/favoritos" className="btn btn-sm btn-outline-primary">
-                                Ver Todos
+                                View All
                             </Link>
                         </div>
                     </div>
@@ -146,10 +146,10 @@ export default function Dashboard() {
                     <div className="card text-center">
                         <div className="card-body">
                             <h2 className="display-4">{historialTrivia.length}</h2>
-                            <p className="card-text">🎲 Partidas de Trivia</p>
+                            <p className="card-text">🎲 Trivia Games Played</p>
                             {mejorPuntajeTrivia > 0 && (
                                 <small className="text-muted">
-                                    Mejor puntaje: {mejorPuntajeTrivia}
+                                    Best score: {mejorPuntajeTrivia}
                                 </small>
                             )}
                         </div>
@@ -159,27 +159,27 @@ export default function Dashboard() {
                     <div className="card text-center">
                         <div className="card-body">
                             <h2 className="display-4">{historialBusquedas.length}</h2>
-                            <p className="card-text">🔍 Búsquedas Recientes</p>
+                            <p className="card-text">🔍 Recent Searches</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="row">
-                {/* Favoritos recientes */}
+                {/* Recent favorites */}
                 <div className="col-md-6 mb-4">
                     <div className="card">
                         <div className="card-header d-flex justify-content-between align-items-center">
-                            <h5 className="mb-0">⭐ Favoritos Recientes</h5>
+                            <h5 className="mb-0">⭐ Recent Favorites</h5>
                             <Link to="/favoritos" className="btn btn-sm btn-outline-primary">
-                                Ver Todos
+                                View All
                             </Link>
                         </div>
                         <div className="card-body">
                             {favoritos.length === 0 ? (
                                 <p className="text-muted">
-                                    No tienes favoritos todavía.{" "}
-                                    <Link to="/catalogo">Explora el catálogo</Link> para agregar algunos.
+                                    You don't have favorites yet.{" "}
+                                    <Link to="/catalogo">Explore the catalog</Link> to add some.
                                 </p>
                             ) : (
                                 <div className="row g-2">
@@ -213,17 +213,17 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                {/* Historial de trivia */}
+                {/* Trivia history */}
                 <div className="col-md-6 mb-4">
                     <div className="card">
                         <div className="card-header">
-                            <h5 className="mb-0">🎲 Historial de Trivia</h5>
+                            <h5 className="mb-0">🎲 Trivia History</h5>
                         </div>
                         <div className="card-body">
                             {historialTrivia.length === 0 ? (
                                 <p className="text-muted">
-                                    No has jugado trivia todavía.{" "}
-                                    <Link to="/trivia">¡Juega tu primera partida!</Link>
+                                    You haven't played trivia yet.{" "}
+                                    <Link to="/trivia">Play your first game!</Link>
                                 </p>
                             ) : (
                                 <div className="list-group list-group-flush">
@@ -248,24 +248,24 @@ export default function Dashboard() {
                             )}
                             <div className="mt-3 text-center">
                                 <Link to="/trivia" className="btn btn-primary btn-sm">
-                                    Jugar Trivia
+                                    Play Trivia
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Búsquedas recientes */}
+                {/* Recent searches */}
                 <div className="col-md-12 mb-4">
                     <div className="card">
                         <div className="card-header">
-                            <h5 className="mb-0">🔍 Búsquedas Recientes</h5>
+                            <h5 className="mb-0">🔍 Recent Searches</h5>
                         </div>
                         <div className="card-body">
                             {historialBusquedas.length === 0 ? (
                                 <p className="text-muted">
-                                    No has realizado búsquedas todavía.{" "}
-                                    <Link to="/catalogo">Busca tu juego favorito</Link>
+                                    You haven't made any searches yet.{" "}
+                                    <Link to="/catalogo">Search for your favorite game</Link>
                                 </p>
                             ) : (
                                 <div className="d-flex flex-wrap gap-2">

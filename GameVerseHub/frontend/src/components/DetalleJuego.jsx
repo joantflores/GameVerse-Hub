@@ -26,8 +26,8 @@ export default function DetalleJuego() {
             const data = await obtenerDetalleJuego(id);
             setJuego(data);
         } catch (err) {
-            console.error("Error al cargar juego:", err);
-            toastError("Error al cargar los detalles del juego");
+            console.error("Error loading game:", err);
+            toastError("Error loading game details");
         } finally {
             setCargando(false);
         }
@@ -43,7 +43,7 @@ export default function DetalleJuego() {
 
     const toggleFavorito = async () => {
         if (!usuario) {
-            toastError("Debes iniciar sesión para agregar favoritos");
+            toastError("You must sign in to add favorites");
             return;
         }
 
@@ -52,24 +52,24 @@ export default function DetalleJuego() {
                 const result = await eliminarFavorito(usuario.uid, parseInt(id));
                 if (result.success) {
                     setEsFavorito(false);
-                    success("Juego eliminado de favoritos");
+                    success("Game removed from favorites");
                 }
             } else {
                 const result = await agregarFavorito(usuario.uid, juego);
                 if (result.success) {
                     setEsFavorito(true);
-                    success("Juego agregado a favoritos");
+                    success("Game added to favorites");
                 }
             }
         } catch (err) {
-            console.error("Error al cambiar favorito:", err);
-            toastError("Error al cambiar favorito");
+            console.error("Error toggling favorite:", err);
+            toastError("Error toggling favorite");
         }
     };
 
     const formatearFecha = (timestamp) => {
         if (!timestamp) return "N/A";
-        return new Date(timestamp * 1000).toLocaleDateString("es-ES", {
+        return new Date(timestamp * 1000).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric"
@@ -80,7 +80,7 @@ export default function DetalleJuego() {
         return (
             <div className="container mt-4 text-center">
                 <div className="spinner-border" role="status">
-                    <span className="visually-hidden">Cargando...</span>
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
         );
@@ -90,9 +90,9 @@ export default function DetalleJuego() {
         return (
             <div className="container mt-4">
                 <div className="alert alert-warning" role="alert">
-                    <h4>Juego no encontrado</h4>
-                    <p>El juego que buscas no existe o no está disponible.</p>
-                    <Link to="/catalogo" className="btn btn-primary">Volver al catálogo</Link>
+                    <h4>Game not found</h4>
+                    <p>The game you are looking for does not exist or is not available.</p>
+                    <Link to="/catalogo" className="btn btn-primary">Back to catalog</Link>
                 </div>
             </div>
         );
@@ -101,7 +101,7 @@ export default function DetalleJuego() {
     return (
         <div className="container mt-4">
             <Link to="/catalogo" className="btn btn-outline-secondary mb-3">
-                ← Volver al catálogo
+                ← Back to catalog
             </Link>
 
             <div className="row">
@@ -134,7 +134,7 @@ export default function DetalleJuego() {
                             </span>
                             {juego.rating_count && (
                                 <span className="badge bg-secondary ms-2 fs-6">
-                                    {juego.rating_count} votos
+                                    {juego.rating_count} votes
                                 </span>
                             )}
                         </div>
@@ -142,13 +142,13 @@ export default function DetalleJuego() {
 
                     {juego.first_release_date && (
                         <p className="text-muted mb-3">
-                            <strong>Fecha de lanzamiento:</strong> {formatearFecha(juego.first_release_date)}
+                            <strong>Release date:</strong> {formatearFecha(juego.first_release_date)}
                         </p>
                     )}
 
                     {juego.genres && juego.genres.length > 0 && (
                         <div className="mb-3">
-                            <strong>Géneros:</strong>
+                            <strong>Genres:</strong>
                             {juego.genres.map((g, i) => (
                                 <span key={i} className="badge bg-primary me-2">
                                     {g.name}
@@ -159,7 +159,7 @@ export default function DetalleJuego() {
 
                     {juego.platforms && juego.platforms.length > 0 && (
                         <div className="mb-3">
-                            <strong>Plataformas:</strong>
+                            <strong>Platforms:</strong>
                             {juego.platforms.map((p, i) => (
                                 <span key={i} className="badge bg-info me-2">
                                     {p.name}
@@ -170,7 +170,7 @@ export default function DetalleJuego() {
 
                     {juego.involved_companies && juego.involved_companies.length > 0 && (
                         <div className="mb-3">
-                            <strong>Desarrolladores:</strong>
+                            <strong>Developers:</strong>
                             {juego.involved_companies.map((c, i) => (
                                 <span key={i} className="badge bg-secondary me-2">
                                     {c.company?.name || c.name}
@@ -181,21 +181,21 @@ export default function DetalleJuego() {
 
                     {juego.summary && (
                         <div className="mb-3">
-                            <h5>Descripción</h5>
+                            <h5>Description</h5>
                             <p>{juego.summary}</p>
                         </div>
                     )}
 
                     {juego.storyline && (
                         <div className="mb-3">
-                            <h5>Historia</h5>
+                            <h5>Storyline</h5>
                             <p>{juego.storyline}</p>
                         </div>
                     )}
 
                     {juego.screenshots && juego.screenshots.length > 0 && (
                         <div className="mb-3">
-                            <h5>Capturas de pantalla</h5>
+                            <h5>Screenshots</h5>
                             <div className="row g-2">
                                 {juego.screenshots.slice(0, 6).map((screenshot, i) => (
                                     <div key={i} className="col-6 col-md-4">

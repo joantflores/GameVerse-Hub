@@ -1,10 +1,4 @@
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-    updateProfile
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { auth, db } from "../config/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
@@ -28,6 +22,9 @@ export async function registrarUsuario(email, password, displayName) {
             historialBusquedas: [],
             historialTrivia: []
         });
+
+        // Cerrar sesión inmediatamente para que el usuario no quede autenticado tras el registro
+        await signOut(auth);
 
         return { success: true, user };
     } catch (error) {

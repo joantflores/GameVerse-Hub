@@ -3,12 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Trivia.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Trivia.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Catalogo.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Catalogo.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Login.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Login.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Trivia.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Trivia.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\config\\firebase.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\config\\firebase.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\authService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\services\\authService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\FIREBASE_SETUP.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\FIREBASE_SETUP.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\igdbService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\services\\igdbService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\routes\\gameRouter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\routes\\gameRouter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\controllers\\gameController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\controllers\\gameController.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\SEGURIDAD.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\SEGURIDAD.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\VERIFICACION_SEGURIDAD.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\VERIFICACION_SEGURIDAD.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\toastUtils.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -23,28 +87,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Toast.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\config\\firebase.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\config\\firebase.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\services\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\SEGURIDAD.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\SEGURIDAD.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\FIREBASE_SETUP.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\FIREBASE_SETUP.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Favoritos.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -59,16 +107,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\triviaService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\services\\triviaService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\routes\\gameRouter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\routes\\gameRouter.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\dataService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -79,12 +119,20 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\services\\gamesRoute.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\igdbService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\backend\\services\\igdbService.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Perfil.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\components\\Perfil.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GameVerseHub\\frontend\\src\\App.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,128 +142,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "toastUtils.js",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-16T00:40:44.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Toast.jsx",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Toast.jsx",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Toast.jsx",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Toast.jsx",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Toast.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-16T00:36:57.944Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Catalogo.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Catalogo.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Catalogo.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Catalogo.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Catalogo.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-16T22:53:18.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\App.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\App.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\App.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\App.jsx",
+              "ViewState": "AgIAAB8AAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-16T22:39:00.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Perfil.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Perfil.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Perfil.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Perfil.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Perfil.jsx",
+              "ViewState": "AgIAACkAAAAAAAAAAIBJwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-16T22:38:50.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Navbar.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Navbar.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Navbar.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Navbar.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Navbar.jsx",
+              "ViewState": "AgIAAEQAAAAAAAAAAABRwAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-16T22:38:39.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Trivia.jsx",
               "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Trivia.jsx",
               "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Trivia.jsx",
               "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Trivia.jsx",
               "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Trivia.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABwBAAAAAAAAAAAqwAMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-11-16T00:30:06.52Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Dashboard.jsx",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
-              "ViewState": "AgIAAAUAAAAAAAAAAAASwBMAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-15T23:35:16.887Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ToastContext.jsx",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-15T23:23:08.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DetalleJuego.jsx",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
-              "ViewState": "AgIAAAYAAAAAAAAAAAASwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-15T23:35:17.511Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\.gitignore",
-              "RelativeDocumentMoniker": "GameVerseHub\\.gitignore",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\.gitignore",
-              "RelativeToolTip": "GameVerseHub\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-15T23:55:56.56Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SEGURIDAD.md",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\SEGURIDAD.md",
-              "RelativeDocumentMoniker": "GameVerseHub\\SEGURIDAD.md",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\SEGURIDAD.md",
-              "RelativeToolTip": "GameVerseHub\\SEGURIDAD.md",
+              "Title": "Login.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Login.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Login.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Login.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Login.jsx",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-11-15T23:55:44.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Favoritos.jsx",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
-              "ViewState": "AgIAAAQAAAAAAAAAAAASwBQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-15T23:34:26.628Z",
+              "WhenOpened": "2025-11-16T21:04:22.223Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "authService.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\authService.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\services\\authService.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\authService.js",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\services\\authService.js",
+              "ViewState": "AgIAADoAAAAAAAAAAAA8wAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-16T21:59:10.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "firebase.js",
               "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\config\\firebase.js",
               "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\config\\firebase.js",
@@ -228,96 +250,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "FIREBASE_SETUP.md",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\FIREBASE_SETUP.md",
-              "RelativeDocumentMoniker": "GameVerseHub\\FIREBASE_SETUP.md",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\FIREBASE_SETUP.md",
-              "RelativeToolTip": "GameVerseHub\\FIREBASE_SETUP.md",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-11-15T23:22:49.169Z",
+              "DocumentIndex": 2,
+              "Title": "ToastContext.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\contexts\\ToastContext.jsx",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T23:23:08.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\package.json",
+              "RelativeDocumentMoniker": "GameVerseHub\\backend\\package.json",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\package.json",
+              "RelativeToolTip": "GameVerseHub\\backend\\package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-16T21:18:54.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "index.js",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\index.js",
-              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\index.js",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\index.js",
-              "RelativeToolTip": "GameVerseHub\\backend\\services\\index.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-15T20:14:45.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "triviaService.js",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\triviaService.js",
-              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\triviaService.js",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\triviaService.js",
-              "RelativeToolTip": "GameVerseHub\\backend\\services\\triviaService.js",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-15T22:06:46.557Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "dataService.js",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\dataService.js",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\services\\dataService.js",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\dataService.js",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\services\\dataService.js",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAYwHAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-15T20:01:58.149Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "dota2Service.js",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\dota2Service.js",
-              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\dota2Service.js",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\dota2Service.js",
-              "RelativeToolTip": "GameVerseHub\\backend\\services\\dota2Service.js",
-              "ViewState": "AgIAACEAAAAAAAAAAAAtwHYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-15T19:58:11.674Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "gameRouter.js",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\routes\\gameRouter.js",
-              "RelativeDocumentMoniker": "GameVerseHub\\backend\\routes\\gameRouter.js",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\routes\\gameRouter.js",
-              "RelativeToolTip": "GameVerseHub\\backend\\routes\\gameRouter.js",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-15T20:14:58.964Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Estadisticas.jsx",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
-              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
-              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAtwBYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2025-11-15T19:58:44.469Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": ".env",
               "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\.env",
               "RelativeDocumentMoniker": "GameVerseHub\\backend\\.env",
@@ -330,7 +289,260 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "igdbService.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\igdbService.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\igdbService.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\igdbService.js",
+              "RelativeToolTip": "GameVerseHub\\backend\\services\\igdbService.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-15T19:58:35.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "gameRouter.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\routes\\gameRouter.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\backend\\routes\\gameRouter.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\routes\\gameRouter.js",
+              "RelativeToolTip": "GameVerseHub\\backend\\routes\\gameRouter.js",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-15T20:14:58.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FIREBASE_SETUP.md",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\FIREBASE_SETUP.md",
+              "RelativeDocumentMoniker": "GameVerseHub\\FIREBASE_SETUP.md",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\FIREBASE_SETUP.md",
+              "RelativeToolTip": "GameVerseHub\\FIREBASE_SETUP.md",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-15T23:22:49.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "gameController.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\controllers\\gameController.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\backend\\controllers\\gameController.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\controllers\\gameController.js",
+              "RelativeToolTip": "GameVerseHub\\backend\\controllers\\gameController.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-16T21:04:45.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\.gitignore",
+              "RelativeDocumentMoniker": "GameVerseHub\\.gitignore",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\.gitignore",
+              "RelativeToolTip": "GameVerseHub\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-15T23:55:56.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\package-lock.json",
+              "RelativeDocumentMoniker": "GameVerseHub\\package-lock.json",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\package-lock.json",
+              "RelativeToolTip": "GameVerseHub\\package-lock.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-16T21:04:38.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\README.md",
+              "RelativeDocumentMoniker": "GameVerseHub\\README.md",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\README.md",
+              "RelativeToolTip": "GameVerseHub\\README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-16T21:04:38.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "VERIFICACION_SEGURIDAD.md",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\VERIFICACION_SEGURIDAD.md",
+              "RelativeDocumentMoniker": "GameVerseHub\\VERIFICACION_SEGURIDAD.md",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\VERIFICACION_SEGURIDAD.md",
+              "RelativeToolTip": "GameVerseHub\\VERIFICACION_SEGURIDAD.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-16T21:04:33.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-16T21:04:31.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SEGURIDAD.md",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\SEGURIDAD.md",
+              "RelativeDocumentMoniker": "GameVerseHub\\SEGURIDAD.md",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\SEGURIDAD.md",
+              "RelativeToolTip": "GameVerseHub\\SEGURIDAD.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-15T23:55:44.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Toast.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Toast.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Toast.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Toast.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Toast.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-16T00:36:57.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Dashboard.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Dashboard.jsx",
+              "ViewState": "AgIAACABAAAAAAAAAIBJwBMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T23:35:16.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 18,
+              "Title": "toastUtils.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\contexts\\toastUtils.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-16T00:40:44.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DetalleJuego.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\DetalleJuego.jsx",
+              "ViewState": "AgIAANgAAAAAAAAAAABBwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T23:35:17.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Favoritos.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Favoritos.jsx",
+              "ViewState": "AgIAAIwAAAAAAAAAAIBJwBQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T23:34:26.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "index.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\index.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\index.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\index.js",
+              "RelativeToolTip": "GameVerseHub\\backend\\services\\index.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-15T20:14:45.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "triviaService.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\triviaService.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\triviaService.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\triviaService.js",
+              "RelativeToolTip": "GameVerseHub\\backend\\services\\triviaService.js",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-15T22:06:46.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "dataService.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\dataService.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\services\\dataService.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\services\\dataService.js",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\services\\dataService.js",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAYwHAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-15T20:01:58.149Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "dota2Service.js",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\dota2Service.js",
+              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\dota2Service.js",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\dota2Service.js",
+              "RelativeToolTip": "GameVerseHub\\backend\\services\\dota2Service.js",
+              "ViewState": "AgIAACEAAAAAAAAAAAAtwHYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-15T19:58:11.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Estadisticas.jsx",
+              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
+              "RelativeDocumentMoniker": "GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
+              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
+              "RelativeToolTip": "GameVerseHub\\frontend\\src\\components\\Estadisticas.jsx",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAtwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2025-11-15T19:58:44.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "gamesRoute.js",
               "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\gamesRoute.js",
               "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\gamesRoute.js",
@@ -342,19 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "igdbService.js",
-              "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\igdbService.js",
-              "RelativeDocumentMoniker": "GameVerseHub\\backend\\services\\igdbService.js",
-              "ToolTip": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\backend\\services\\igdbService.js",
-              "RelativeToolTip": "GameVerseHub\\backend\\services\\igdbService.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-15T19:58:35.829Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 29,
               "Title": "vite.config.js",
               "DocumentMoniker": "C:\\Users\\Jos\u00E9 Flores\\OneDrive - Instituto Educativo del Noroeste, A.C\\Documents\\GitHub\\GameVerse-Hub\\GameVerseHub\\frontend\\vite.config.js",
               "RelativeDocumentMoniker": "GameVerseHub\\frontend\\vite.config.js",

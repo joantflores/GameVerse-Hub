@@ -32,16 +32,16 @@ export default function Favoritos() {
     const handleEliminar = async (juegoId) => {
         if (!usuario) return;
         
-        const confirmar = window.confirm("¿Estás seguro de que quieres eliminar este juego de favoritos?");
+        const confirmar = window.confirm("Are you sure you want to remove this game from favorites?");
         if (!confirmar) return;
 
         const result = await eliminarFavorito(usuario.uid, juegoId);
         if (result.success) {
-            success("Juego eliminado de favoritos");
+            success("Game removed from favorites");
             // Recargar favoritos
             await cargarFavoritos();
         } else {
-            toastError("Error al eliminar favorito: " + result.error);
+            toastError("Error removing favorite: " + result.error);
         }
     };
 
@@ -49,10 +49,10 @@ export default function Favoritos() {
         return (
             <div className="container mt-4">
                 <div className="alert alert-warning" role="alert">
-                    <h4 className="alert-heading">Inicia sesión</h4>
-                    <p>Debes iniciar sesión para ver tus juegos favoritos.</p>
+                    <h4 className="alert-heading">Sign In</h4>
+                    <p>You must sign in to see your favorite games.</p>
                     <hr />
-                    <Link to="/login" className="btn btn-primary">Iniciar Sesión</Link>
+                    <Link to="/login" className="btn btn-primary">Sign In</Link>
                 </div>
             </div>
         );
@@ -62,7 +62,7 @@ export default function Favoritos() {
         return (
             <div className="container mt-4 text-center">
                 <div className="spinner-border" role="status">
-                    <span className="visually-hidden">Cargando favoritos...</span>
+                    <span className="visually-hidden">Loading favorites...</span>
                 </div>
             </div>
         );
@@ -71,14 +71,14 @@ export default function Favoritos() {
     return (
         <div className="container mt-4">
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h2>⭐ Mis Favoritos</h2>
-                <span className="badge bg-secondary">{favoritos.length} juegos</span>
+                <h2>⭐ My Favorites</h2>
+                <span className="badge bg-secondary">{favoritos.length} games</span>
             </div>
 
             {favoritos.length === 0 ? (
                 <div className="alert alert-info" role="alert">
-                    <h4 className="alert-heading">No tienes favoritos todavía</h4>
-                    <p>Comienza a agregar juegos a tus favoritos desde el <Link to="/">catálogo</Link>.</p>
+                    <h4 className="alert-heading">You don't have favorites yet</h4>
+                    <p>Start adding games to your favorites from the <Link to="/">catalog</Link>.</p>
                 </div>
             ) : (
                 <div className="row">
@@ -120,12 +120,12 @@ export default function Favoritos() {
                                             to={`/juego/${juego.id}`}
                                             className="btn btn-primary btn-sm flex-grow-1"
                                         >
-                                            Ver Detalles
+                                            View Details
                                         </Link>
                                         <button
                                             className="btn btn-danger btn-sm"
                                             onClick={() => handleEliminar(juego.id)}
-                                            title="Eliminar de favoritos"
+                                            title="Remove from favorites"
                                         >
                                             🗑️
                                         </button>
