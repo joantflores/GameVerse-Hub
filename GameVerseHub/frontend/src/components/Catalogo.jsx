@@ -1,64 +1,314 @@
 ﻿import { useEffect, useState } from "react";
-import { getJuegos } from "../services/dataService.js";
+import { Link, useSearchParams } from "react-router-dom";
+import { getJuegos, obtenerGeneros } from "../services/dataService.js";
+import { useAuth } from "../contexts/AuthContext";
+import { useToast } from "../contexts/ToastContext";
+import { agregarFavorito, eliminarFavorito, obtenerFavoritos, agregarHistorialBusqueda } from "../services/firestoreService";
 
 export default function Catalogo() {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [juegos, setJuegos] = useState([]);
-    const [filtro, setFiltro] = useState("");
+    const [filtro, setFiltro] = useState(searchParams.get("q") || "");
     const [loading, setLoading] = useState(false);
+    const [generos, setGeneros] = useState([]);
+    const [filtroGenero, setFiltroGenero] = useState("");
+    const [filtroAnio, setFiltroAnio] = useState("");
+    const [paginaActual, setPaginaActual] = useState(1);
+    const [totalJuegos, setTotalJuegos] = useState(0);
+    const juegosPorPagina = 12;
+    const { usuario } = useAuth();
+    const { success, error: toastError } = useToast();
+    const [favoritos, setFavoritos] = useState([]);
+
+    // Cargar favoritos y géneros cuando el usuario esté autenticado
+    useEffect(() => {
+        if (usuario) {
+            cargarFavoritos();
+        }
+        cargarGeneros();
+    }, [usuario]);
+
+    const cargarGeneros = async () => {
+        const gens = await obtenerGeneros();
+        setGeneros(gens);
+    };
+
+    const cargarFavoritos = async () => {
+        if (!usuario) return;
+        const result = await obtenerFavoritos(usuario.uid);
+        if (result.success) {
+            setFavoritos(result.favoritos.map(f => f.id));
+        }
+    };
 
     useEffect(() => {
         if (filtro.trim() === "") {
             setJuegos([]);
+            setTotalJuegos(0);
             return;
         }
 
         setLoading(true);
+        setPaginaActual(1);
 
-        const timeoutId = setTimeout(() => {
-            getJuegos(filtro).then(data => {
-                setJuegos(data);
+        const timeoutId = setTimeout(async () => {
+            try {
+                const offset = (paginaActual - 1) * juegosPorPagina;
+                const data = await getJuegos(filtro, { 
+                    limit: juegosPorPagina, 
+                    offset: 0 
+                });
+                
+                // Aplicar filtros del lado del cliente (IGDB no tiene filtros directos en búsqueda)
+                let juegosFiltrados = data;
+                
+                if (filtroGenero) {
+                    juegosFiltrados = juegosFiltrados.filter(j => 
+                        j.genres && j.genres.some(g => 
+                            g.id === parseInt(filtroGenero) || g.name.toLowerCase().includes(filtroGenero.toLowerCase())
+                        )
+                    );
+                }
+                
+                if (filtroAnio) {
+                    juegosFiltrados = juegosFiltrados.filter(j => {
+                        if (!j.first_release_date) return false;
+                        const anio = new Date(j.first_release_date * 1000).getFullYear();
+                        return anio.toString() === filtroAnio;
+                    });
+                }
+
+                setJuegos(juegosFiltrados);
+                setTotalJuegos(juegosFiltrados.length);
+
+                // Guardar búsqueda en historial si el usuario está autenticado
+                if (usuario && filtro.trim()) {
+                    await agregarHistorialBusqueda(usuario.uid, filtro.trim());
+                }
+            } catch (err) {
+                console.error("Error buscando juegos:", err);
+                toastError("Error al buscar juegos");
+            } finally {
                 setLoading(false);
-            });
+            }
         }, 500);
 
         return () => clearTimeout(timeoutId);
 
-    }, [filtro]);
+    }, [filtro, usuario, filtroGenero, filtroAnio]);
+
+    const toggleFavorito = async (juego, e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (!usuario) {
+            toastError("Debes iniciar sesión para agregar juegos a favoritos");
+            return;
+        }
+
+        const esFavorito = favoritos.includes(juego.id);
+
+        try {
+            if (esFavorito) {
+                const result = await eliminarFavorito(usuario.uid, juego.id);
+                if (result.success) {
+                    setFavoritos(favoritos.filter(id => id !== juego.id));
+                    success("Juego eliminado de favoritos");
+                } else {
+                    toastError("Error al eliminar favorito: " + result.error);
+                }
+            } else {
+                const result = await agregarFavorito(usuario.uid, juego);
+                if (result.success) {
+                    setFavoritos([...favoritos, juego.id]);
+                    success("Juego agregado a favoritos");
+                } else {
+                    toastError("Error al agregar favorito: " + result.error);
+                }
+            }
+        } catch (error) {
+            console.error("Error al cambiar favorito:", error);
+            toastError("Error al cambiar favorito");
+        }
+    };
+
+    const formatearFecha = (timestamp) => {
+        if (!timestamp) return "N/A";
+        return new Date(timestamp * 1000).getFullYear();
+    };
+
+    const limpiarFiltros = () => {
+        setFiltroGenero("");
+        setFiltroAnio("");
+    };
 
     return (
         <div className="container mt-4">
-            <h2>Catálogo de Juegos</h2>
-            <input
-                className="form-control mb-3"
-                placeholder="Buscar juego..."
-                value={filtro}
-                onChange={e => setFiltro(e.target.value)}
-            />
+            <h2>🎮 Catálogo de Juegos</h2>
+            {!usuario && (
+                <div className="alert alert-info mb-3" role="alert">
+                    <strong>💡 Tip:</strong> <Link to="/login">Inicia sesión</Link> para guardar tus juegos favoritos y ver tu historial de búsquedas.
+                </div>
+            )}
 
-            {loading && <p>Cargando juegos...</p>}
+            {/* Búsqueda */}
+            <div className="mb-3">
+                <input
+                    className="form-control form-control-lg"
+                    placeholder="Buscar juego..."
+                    value={filtro}
+                    onChange={e => setFiltro(e.target.value)}
+                />
+            </div>
 
-            <div className="row">
-                {juegos.map(j => (
-                    <div className="col-md-4 mb-3" key={j.id}>
-                        <div className="card">
-                            {j.cover?.url && (
-                                <img
-                                    src={j.cover.url.replace("t_thumb", "t_cover_big")}
-                                    className="card-img-top"
-                                    alt={j.name}
+            {/* Filtros */}
+            {filtro.trim() !== "" && (
+                <div className="card mb-3">
+                    <div className="card-body">
+                        <h6 className="card-title">Filtros</h6>
+                        <div className="row g-3">
+                            <div className="col-md-4">
+                                <label className="form-label">Género</label>
+                                <select
+                                    className="form-select"
+                                    value={filtroGenero}
+                                    onChange={e => setFiltroGenero(e.target.value)}
+                                >
+                                    <option value="">Todos los géneros</option>
+                                    {generos.map(g => (
+                                        <option key={g.id} value={g.id}>
+                                            {g.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="col-md-4">
+                                <label className="form-label">Año de Lanzamiento</label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="Ej: 2023"
+                                    min="1970"
+                                    max={new Date().getFullYear() + 1}
+                                    value={filtroAnio}
+                                    onChange={e => setFiltroAnio(e.target.value)}
                                 />
-                            )}
-                            <div className="card-body">
-                                <h5 className="card-title">{j.name}</h5>
-                                <p className="card-text">{j.summary}</p>
-                                {j.genres?.map(g => (
-                                    <span key={g.id} className="badge bg-primary me-1">{g.name}</span>
-                                ))}
+                            </div>
+                            <div className="col-md-4 d-flex align-items-end">
+                                <button
+                                    className="btn btn-outline-secondary w-100"
+                                    onClick={limpiarFiltros}
+                                    disabled={!filtroGenero && !filtroAnio}
+                                >
+                                    Limpiar Filtros
+                                </button>
                             </div>
                         </div>
                     </div>
-                ))}
-            </div>
+                </div>
+            )}
+
+            {/* Loading */}
+            {loading && (
+                <div className="text-center py-5">
+                    <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Cargando juegos...</span>
+                    </div>
+                    <p className="mt-2 text-muted">Buscando juegos...</p>
+                </div>
+            )}
+
+            {/* Resultados */}
+            {!loading && filtro.trim() !== "" && juegos.length === 0 && (
+                <div className="alert alert-warning" role="alert">
+                    No se encontraron juegos con los filtros seleccionados. Intenta con otros términos de búsqueda.
+                </div>
+            )}
+
+            {!loading && juegos.length > 0 && (
+                <>
+                    <div className="mb-3">
+                        <p className="text-muted">
+                            Mostrando <strong>{juegos.length}</strong> juego{juegos.length !== 1 ? 's' : ''}
+                            {totalJuegos > juegos.length && ` de ${totalJuegos}`}
+                        </p>
+                    </div>
+
+                    <div className="row">
+                        {juegos.map(j => (
+                            <div className="col-md-4 mb-4" key={j.id}>
+                                <Link to={`/juego/${j.id}`} className="text-decoration-none text-dark">
+                                    <div className="card h-100 hover-shadow">
+                                        {j.cover?.url && (
+                                            <img
+                                                src={j.cover.url.replace("t_thumb", "t_cover_big")}
+                                                className="card-img-top"
+                                                alt={j.name}
+                                                style={{ height: "300px", objectFit: "cover" }}
+                                            />
+                                        )}
+                                        <div className="card-body d-flex flex-column">
+                                            <div className="d-flex justify-content-between align-items-start mb-2">
+                                                <h5 className="card-title flex-grow-1">{j.name}</h5>
+                                                {usuario && (
+                                                    <button
+                                                        className={`btn btn-sm ${favoritos.includes(j.id) ? "btn-warning" : "btn-outline-secondary"}`}
+                                                        onClick={(e) => toggleFavorito(j, e)}
+                                                        title={favoritos.includes(j.id) ? "Eliminar de favoritos" : "Agregar a favoritos"}
+                                                    >
+                                                        {favoritos.includes(j.id) ? "⭐" : "☆"}
+                                                    </button>
+                                                )}
+                                            </div>
+                                            {j.first_release_date && (
+                                                <small className="text-muted mb-2">
+                                                    {formatearFecha(j.first_release_date)}
+                                                </small>
+                                            )}
+                                            {j.summary && (
+                                                <p className="card-text flex-grow-1">
+                                                    {j.summary.length > 120
+                                                        ? j.summary.substring(0, 120) + "..."
+                                                        : j.summary}
+                                                </p>
+                                            )}
+                                            <div className="mt-auto">
+                                                {j.genres?.slice(0, 3).map(g => (
+                                                    <span key={g.id} className="badge bg-primary me-1">
+                                                        {g.name}
+                                                    </span>
+                                                ))}
+                                                {j.genres && j.genres.length > 3 && (
+                                                    <span className="badge bg-secondary">
+                                                        +{j.genres.length - 3}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            {j.rating && (
+                                                <div className="mt-2">
+                                                    <small className="text-muted">
+                                                        ⭐ {j.rating.toFixed(1)} / 100
+                                                    </small>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
+
+            {/* Mensaje inicial */}
+            {!loading && filtro.trim() === "" && (
+                <div className="text-center py-5">
+                    <h4 className="text-muted">🔍 Busca tu juego favorito</h4>
+                    <p className="text-muted">
+                        Ingresa el nombre de un juego para comenzar a explorar el catálogo.
+                    </p>
+                </div>
+            )}
         </div>
     );
 }

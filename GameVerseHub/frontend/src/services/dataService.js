@@ -1,15 +1,5 @@
-﻿export const estadisticas = [
-    { jugador: "Alice", partidas_jugadas: 120, victorias: 85 },
-    { jugador: "Bob", partidas_jugadas: 95, victorias: 50 },
-    { jugador: "Charlie", partidas_jugadas: 150, victorias: 100 }
-]
-
+﻿// Datos de trivia de ejemplo (legacy - ya no se usa en producción)
 export const triviaData = [
-    {
-        pregunta: "¿En qué año salió Dota 2?",
-        opciones: ["2010", "2013", "2015", "2009"],
-        correcta: 1
-    },
     {
         pregunta: "¿Cuál fue el primer juego de The Witcher?",
         opciones: ["2007", "2010", "2015", "2011"],
@@ -17,32 +7,114 @@ export const triviaData = [
     },
     {
         pregunta: "¿De qué país es originario Pokémon?",
-        opciones: ["China", "Corea", "Japón", "EE. UU."],
+        opciones: ["China", "Corea", "Japón", "EE. UU."],
         correcta: 2
     },
 ];
 
-
-// Simular llamadas async
-export function getEstadisticas() {
-    return new Promise((resolve) => setTimeout(() => resolve(estadisticas), 300));
-}
-
+// Función legacy (ya no se usa en producción, pero se mantiene por compatibilidad)
 export function getTrivia() {
     return new Promise((resolve) => setTimeout(() => resolve(triviaData), 300));
 }
 
-// dataService.js
-export async function getJuegos(nombre) {
+// Helper para validar responses
+async function fetchJson(url) {
+    const res = await fetch(url);
+    const text = await res.text();
+    // Intentar parsear JSON, si falla arrojar con info
+    try {
+        const data = text ? JSON.parse(text) : null;
+        if (!res.ok) {
+            // Si el servidor responde con error, incluir cuerpo para debugging
+            const err = new Error(`HTTP ${res.status} ${res.statusText}`);
+            err.status = res.status;
+            err.body = data ?? text;
+            throw err;
+        }
+        return data;
+    } catch (parseErr) {
+        // Error al parsear JSON: devolver detalles para depuración
+        const err = new Error("Invalid JSON response from " + url);
+        err.original = parseErr;
+        err.bodyText = text;
+        throw err;
+    }
+}
+
+// Funciones de Catálogo (IGDB API)
+export async function getJuegos(nombre, opciones = {}) {
     if (!nombre || nombre.trim() === "") return [];
 
     try {
-        const response = await fetch(`http://localhost:5173/api/juegos?nombre=${nombre}`);
-        const data = await response.json();
-        return data;
+        const { limit = 20, offset = 0 } = opciones;
+        const params = new URLSearchParams({
+            nombre: nombre.trim(),
+            limit: limit.toString(),
+            offset: offset.toString()
+        });
+        const data = await fetchJson(`/api/juegos?${params.toString()}`);
+        return Array.isArray(data) ? data : [];
     } catch (err) {
         console.error("Error obteniendo juegos:", err);
         return [];
     }
 }
 
+export async function obtenerDetalleJuego(id) {
+    try {
+        const data = await fetchJson(`/api/juegos/${id}`);
+        return data;
+    } catch (err) {
+        console.error("Error obteniendo detalle del juego:", err);
+        throw err;
+    }
+}
+
+export async function obtenerGeneros() {
+    try {
+        const data = await fetchJson(`/api/juegos/recursos/generos`);
+        return Array.isArray(data) ? data : [];
+    } catch (err) {
+        console.error("Error obteniendo géneros:", err);
+        return [];
+    }
+}
+
+export async function obtenerPlataformas() {
+    try {
+        const data = await fetchJson(`/api/juegos/recursos/plataformas`);
+        return Array.isArray(data) ? data : [];
+    } catch (err) {
+        console.error("Error obteniendo plataformas:", err);
+        return [];
+    }
+}
+
+// Funciones de Trivia (Open Trivia API)
+export async function getPreguntasTrivia(opciones = {}) {
+    try {
+        const { cantidad = 10, categoria = null, dificultad = null, tipo = "multiple" } = opciones;
+        
+        const params = new URLSearchParams({ cantidad: cantidad.toString(), tipo });
+        if (categoria) params.append("categoria", categoria);
+        if (dificultad) params.append("dificultad", dificultad);
+        
+        const url = `/api/trivia/preguntas?${params.toString()}`;
+        const data = await fetchJson(url);
+        
+        return Array.isArray(data) ? data : [];
+    } catch (err) {
+        console.error("Error obteniendo preguntas de trivia:", err);
+        throw err;
+    }
+}
+
+export async function getCategoriasTrivia() {
+    try {
+        const data = await fetchJson(`/api/trivia/categorias`);
+        return Array.isArray(data) ? data : [];
+    } catch (err) {
+        console.error("Error obteniendo categorías de trivia:", err);
+        return [];
+    }
+}

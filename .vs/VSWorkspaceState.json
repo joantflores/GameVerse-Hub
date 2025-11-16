@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\GameVerseHub",
+    "\\GameVerseHub\\backend",
+    "\\GameVerseHub\\backend\\routes",
+    "\\GameVerseHub\\frontend",
+    "\\GameVerseHub\\frontend\\src",
+    "\\GameVerseHub\\frontend\\src\\components",
+    "\\GameVerseHub\\frontend\\src\\config",
+    "\\GameVerseHub\\frontend\\src\\contexts",
+    "\\GameVerseHub\\frontend\\src\\services"
+  ],
+  "SelectedNode": "\\GameVerseHub\\frontend\\src\\components\\Trivia.jsx",
+  "PreviewInSolutionExplorer": false
+}
