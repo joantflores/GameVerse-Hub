@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import Toast from "../components/Toast";
 
-// Sólo exporta contexto y provider (componentes)
 const ToastContext = createContext();
 
 export function useToast() {
