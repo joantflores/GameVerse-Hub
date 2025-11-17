@@ -13,7 +13,8 @@ import {
 
 const router = express.Router();
 
-// Rutas de IGDB
+
+// GET /api/juegos
 router.get("/juegos", async (req, res) => {
     const nombre = req.query.nombre || "";
     const limit = parseInt(req.query.limit) || 20;
@@ -28,85 +29,113 @@ router.get("/juegos", async (req, res) => {
     }
 });
 
+// GET /api/juegos/:id
 router.get("/juegos/:id", async (req, res) => {
-    const juegoId = req.params.id;
     try {
-        const juego = await obtenerDetalleJuego(juegoId);
-        if (juego) {
-            res.json(juego);
-        } else {
-            res.status(404).json({ error: "Juego no encontrado" });
-        }
+        const juego = await obtenerDetalleJuego(req.params.id);
+        if (!juego) return res.status(404).json({ error: "Juego no encontrado" });
+        res.json(juego);
     } catch (error) {
         console.error("Error en /api/juegos/:id:", error);
         res.status(500).json({ error: "Error al obtener el juego" });
     }
 });
 
+// GET /api/juegos/recursos/generos
 router.get("/juegos/recursos/generos", async (req, res) => {
     try {
-        const generos = await obtenerGeneros();
-        res.json(generos);
+        res.json(await obtenerGeneros());
     } catch (error) {
-        console.error("Error en /api/juegos/recursos/generos:", error);
+        console.error(error);
         res.status(500).json({ error: "Error al obtener géneros" });
     }
 });
 
+// GET /api/juegos/recursos/plataformas
 router.get("/juegos/recursos/plataformas", async (req, res) => {
     try {
-        const plataformas = await obtenerPlataformas();
-        res.json(plataformas);
+        res.json(await obtenerPlataformas());
     } catch (error) {
-        console.error("Error en /api/juegos/recursos/plataformas:", error);
+        console.error(error);
         res.status(500).json({ error: "Error al obtener plataformas" });
     }
 });
 
-// Rutas de Trivia (Open Trivia API)
+/*
+========================================
+=          RUTAS EXTRA PARA FRONTEND   =
+========================================
+*/
+
+// El frontend espera /api/games
+router.get("/games", async (req, res) => {
+    req.query.nombre = req.query.search || "";
+    return router.handle(req, res, () => {}, "/juegos");
+});
+
+// El frontend espera /api/games/:id
+router.get("/games/:id", async (req, res) => {
+    req.params.id = req.params.id;
+    return router.handle(req, res, () => {}, "/juegos/:id");
+});
+
+// El frontend espera /api/categories
+router.get("/categories", async (req, res) => {
+    try {
+        res.json(await obtenerGeneros());
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener categorías" });
+    }
+});
+
+// El frontend espera /api/platforms
+router.get("/platforms", async (req, res) => {
+    try {
+        res.json(await obtenerPlataformas());
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener plataformas" });
+    }
+});
+
+/*
+========================================
+=          TRIVIA (Open Trivia DB)     =
+========================================
+*/
+
 router.get("/trivia/preguntas", async (req, res) => {
     try {
         const cantidad = parseInt(req.query.cantidad) || 10;
-        const categoria = req.query.categoria || null;
-        const dificultad = req.query.dificultad || null;
-        const tipo = req.query.tipo || "multiple";
-
-        // Validar cantidad
         if (cantidad < 1 || cantidad > 50) {
             return res.status(400).json({ error: "La cantidad debe estar entre 1 y 50" });
         }
 
         const preguntas = await obtenerPreguntasTrivia({
             cantidad,
-            categoria,
-            dificultad,
-            tipo
+            categoria: req.query.categoria || null,
+            dificultad: req.query.dificultad || null,
+            tipo: req.query.tipo || "multiple"
         });
 
         res.json(preguntas);
     } catch (error) {
-        console.error("Error en /api/trivia/preguntas:", error.message || error);
-        res.status(500).json({ error: error.message || "Error al obtener preguntas de trivia" });
+        res.status(500).json({ error: "Error al obtener preguntas" });
     }
 });
 
 router.get("/trivia/categorias", async (req, res) => {
     try {
-        const categorias = await obtenerCategoriasTrivia();
-        res.json(categorias);
+        res.json(await obtenerCategoriasTrivia());
     } catch (error) {
-        console.error("Error en /api/trivia/categorias:", error.message || error);
-        res.status(500).json({ error: "Error al obtener categorías de trivia" });
+        res.status(500).json({ error: "Error al obtener categorías" });
     }
 });
 
 router.get("/trivia/token", async (req, res) => {
     try {
-        const token = await obtenerTokenSesion();
-        res.json({ token });
+        res.json({ token: await obtenerTokenSesion() });
     } catch (error) {
-        console.error("Error en /api/trivia/token:", error.message || error);
-        res.status(500).json({ error: "Error al obtener token de sesión" });
+        res.status(500).json({ error: "Error al obtener token" });
     }
 });
 
