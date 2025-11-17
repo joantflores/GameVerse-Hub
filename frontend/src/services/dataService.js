@@ -38,8 +38,6 @@ export function apiUrl(path) {
 
 // Funciones de Catálogo (IGDB API)
 export async function getJuegos(nombre, opciones = {}) {
-    if (!nombre || nombre.trim() === "") return [];
-
     try {
         const { limit = 20, offset = 0 } = opciones;
         const params = new URLSearchParams({
