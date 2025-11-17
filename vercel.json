@@ -1,25 +1,8 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "http://localhost:3000/api/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "builds": [
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "source": "/api/(.*)",
+      "destination": "https://gameverse-hub-h19e.onrender.com/api/$1"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "http://localhost:3000/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "frontend/$1"
-    }
-  ],
-  "installCommand": "npm install --prefix frontend",
-  "buildCommand": "npm run build --prefix frontend"
+  ]
 }
