@@ -41,6 +41,15 @@ async function fetchJson(url) {
     }
 }
 
+// Base URL for backend API (in production set VITE_API_URL in env)
+const BASE_API = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
+export function apiUrl(path) {
+    if (!BASE_API) return path; // use relative paths in local dev
+    // ensure path starts with /
+    return `${BASE_API}${path.startsWith('/') ? '' : '/'}${path}`;
+}
+
 // Funciones de Catálogo (IGDB API)
 export async function getJuegos(nombre, opciones = {}) {
     if (!nombre || nombre.trim() === "") return [];
@@ -52,7 +61,7 @@ export async function getJuegos(nombre, opciones = {}) {
             limit: limit.toString(),
             offset: offset.toString()
         });
-        const data = await fetchJson(`/api/juegos?${params.toString()}`);
+        const data = await fetchJson(apiUrl(`/api/juegos?${params.toString()}`));
         return Array.isArray(data) ? data : [];
     } catch (err) {
         console.error("Error obteniendo juegos:", err);
@@ -62,7 +71,7 @@ export async function getJuegos(nombre, opciones = {}) {
 
 export async function obtenerDetalleJuego(id) {
     try {
-        const data = await fetchJson(`/api/juegos/${id}`);
+        const data = await fetchJson(apiUrl(`/api/juegos/${id}`));
         return data;
     } catch (err) {
         console.error("Error obteniendo detalle del juego:", err);
@@ -72,7 +81,7 @@ export async function obtenerDetalleJuego(id) {
 
 export async function obtenerGeneros() {
     try {
-        const data = await fetchJson(`/api/juegos/recursos/generos`);
+        const data = await fetchJson(apiUrl(`/api/juegos/recursos/generos`));
         return Array.isArray(data) ? data : [];
     } catch (err) {
         console.error("Error obteniendo géneros:", err);
@@ -82,7 +91,7 @@ export async function obtenerGeneros() {
 
 export async function obtenerPlataformas() {
     try {
-        const data = await fetchJson(`/api/juegos/recursos/plataformas`);
+        const data = await fetchJson(apiUrl(`/api/juegos/recursos/plataformas`));
         return Array.isArray(data) ? data : [];
     } catch (err) {
         console.error("Error obteniendo plataformas:", err);
@@ -99,7 +108,7 @@ export async function getPreguntasTrivia(opciones = {}) {
         if (categoria) params.append("categoria", categoria);
         if (dificultad) params.append("dificultad", dificultad);
         
-        const url = `/api/trivia/preguntas?${params.toString()}`;
+        const url = apiUrl(`/api/trivia/preguntas?${params.toString()}`);
         const data = await fetchJson(url);
         
         return Array.isArray(data) ? data : [];
@@ -111,7 +120,7 @@ export async function getPreguntasTrivia(opciones = {}) {
 
 export async function getCategoriasTrivia() {
     try {
-        const data = await fetchJson(`/api/trivia/categorias`);
+        const data = await fetchJson(apiUrl(`/api/trivia/categorias`));
         return Array.isArray(data) ? data : [];
     } catch (err) {
         console.error("Error obteniendo categorías de trivia:", err);

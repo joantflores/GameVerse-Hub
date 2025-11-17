@@ -1,6 +1,13 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "firebase/auth";
 import { auth, db } from "../config/firebase";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
+
+// Base API for backend (use VITE_API_URL in production)
+const BASE_API = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+function backendUrl(path) {
+    if (!BASE_API) return path; // relative for local
+    return `${BASE_API}${path.startsWith('/') ? '' : '/'}${path}`;
+}
 
 // Registro de usuario
 export async function registrarUsuario(email, password, displayName) {
@@ -20,7 +27,8 @@ export async function registrarUsuario(email, password, displayName) {
             fechaRegistro: new Date(),
             favoritos: [],
             historialBusquedas: [],
-            historialTrivia: []
+            historialTrivia: [],
+            welcomeSent: false
         });
 
         // Cerrar sesión inmediatamente para que el usuario no quede autenticado tras el registro
@@ -28,7 +36,7 @@ export async function registrarUsuario(email, password, displayName) {
 
         return { success: true, user };
     } catch (error) {
-        console.error("Error al registrar usuario:", error);
+        console.error("Error registering user:", error);
         return { success: false, error: error.message };
     }
 }
@@ -37,9 +45,38 @@ export async function registrarUsuario(email, password, displayName) {
 export async function iniciarSesion(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        return { success: true, user: userCredential.user };
+        const user = userCredential.user;
+
+        // After successful sign-in, check if welcome email was already sent
+        try {
+            const userDocRef = doc(db, "usuarios", user.uid);
+            const userDoc = await getDoc(userDocRef);
+            const userData = userDoc.exists() ? userDoc.data() : null;
+
+            if (userData && !userData.welcomeSent) {
+                // Call backend to send welcome email
+                try {
+                    const sendUrl = backendUrl('/api/send-welcome');
+                    await fetch(sendUrl, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ email: user.email, displayName: user.displayName || userData.displayName || "" })
+                    });
+
+                    // Mark as sent in Firestore
+                    await updateDoc(userDocRef, { welcomeSent: true });
+                } catch (sendErr) {
+                    console.error("Failed to send welcome email:", sendErr);
+                    // Do not fail login if email sending fails
+                }
+            }
+        } catch (err) {
+            console.error("Error checking welcome flag:", err);
+        }
+
+        return { success: true, user };
     } catch (error) {
-        console.error("Error al iniciar sesión:", error);
+        console.error("Error signing in:", error);
         return { success: false, error: error.message };
     }
 }
@@ -50,7 +87,7 @@ export async function cerrarSesion() {
         await signOut(auth);
         return { success: true };
     } catch (error) {
-        console.error("Error al cerrar sesión:", error);
+        console.error("Error signing out:", error);
         return { success: false, error: error.message };
     }
 }
@@ -67,10 +104,10 @@ export async function obtenerUsuario(uid) {
         if (userDoc.exists()) {
             return { success: true, data: userDoc.data() };
         } else {
-            return { success: false, error: "Usuario no encontrado" };
+            return { success: false, error: "User not found" };
         }
     } catch (error) {
-        console.error("Error al obtener usuario:", error);
+        console.error("Error getting user:", error);
         return { success: false, error: error.message };
     }
 }
