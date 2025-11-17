@@ -1,10 +1,10 @@
-# Twitch / IGDB credentials
-TWITCH_CLIENT_ID=z2ryfgalzz3y8od4w6oo8yizb91g6h
-TWITCH_CLIENT_SECRET=wsgfreqti59yplweqiqhcp6mdqo18o
+﻿# Twitch / IGDB credentials
+TWITCH_CLIENT_ID=your_twitch_client_id
+TWITCH_CLIENT_SECRET=your_twitch_client_secret
 
 # SMTP (Gmail) credentials - use App Password for Gmail
-SMTP_USER=jose.flores@cetys.edu.mx
-SMTP_PASS=ihflxdqiukikcepk
+SMTP_USER=your@gmail.com
+SMTP_PASS=your_app_password
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
 SMTP_SECURE=true

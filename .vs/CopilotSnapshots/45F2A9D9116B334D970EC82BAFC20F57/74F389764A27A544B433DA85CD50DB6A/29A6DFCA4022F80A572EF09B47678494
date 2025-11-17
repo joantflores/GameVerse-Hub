@@ -1,0 +1,12 @@
+﻿# Copy this file to `.env` and fill values (DO NOT commit the real .env with secrets)
+
+# Twitch / IGDB credentials
+TWITCH_CLIENT_ID=your_twitch_client_id
+TWITCH_CLIENT_SECRET=your_twitch_client_secret
+
+# Server port
+PORT=3000
+
+# (Optional) additional keys
+# EXAMPLE_SENDGRID_API_KEY=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
+# EMAIL_FROM=GameVerse Hub <no-reply@yourdomain.com>
