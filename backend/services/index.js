@@ -9,13 +9,14 @@ const app = express();
 // =============== CORS FIX ===============
 const FRONTEND_URL = process.env.FRONTEND_URL || process.env.FRONTEND;
 
+// =============== CORS CONFIG ===============
+const FRONTEND_URL = process.env.FRONTEND_URL || process.env.FRONTEND || "";
 app.use(cors({
-  origin: FRONTEND_URL
-    ? [FRONTEND_URL, "http://localhost:5173"]
-    : "*",   
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  origin: FRONTEND_URL ? [FRONTEND_URL, "http://localhost:5173"] : true,
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
   credentials: true
 }));
+
 
 app.use(express.json());
 

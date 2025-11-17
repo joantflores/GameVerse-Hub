@@ -31,9 +31,17 @@ async function fetchJson(url) {
 const BASE_API = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
 export function apiUrl(path) {
-    if (!BASE_API) return path; // use relative paths in local dev
-    // ensure path starts with /
-    return `${BASE_API}${path.startsWith('/') ? '' : '/'}${path}`;
+    // normalize
+    const base = BASE_API || '';
+    if (!base) return path; // relative paths in dev
+    // if base already contains '/api' and path starts with '/api', avoid duplication
+    const baseHasApi = base.endsWith('/api');
+    const pathHasApi = path.startsWith('/api');
+    if (baseHasApi && pathHasApi) {
+        return base + path.slice(4);
+    }
+    // ensure single slash join
+    return `${base}${path.startsWith('/') ? '' : '/'}${path}`;
 }
 
 // Funciones de Catálogo (IGDB API)
