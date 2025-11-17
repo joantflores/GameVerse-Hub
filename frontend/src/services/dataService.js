@@ -1,18 +1,4 @@
-﻿// Datos de trivia de ejemplo (legacy - ya no se usa en producción)
-export const triviaData = [
-    {
-        pregunta: "¿Cuál fue el primer juego de The Witcher?",
-        opciones: ["2007", "2010", "2015", "2011"],
-        correcta: 0
-    },
-    {
-        pregunta: "¿De qué país es originario Pokémon?",
-        opciones: ["China", "Corea", "Japón", "EE. UU."],
-        correcta: 2
-    },
-];
-
-// Función legacy (ya no se usa en producción, pero se mantiene por compatibilidad)
+﻿// Función legacy (ya no se usa en producción, pero se mantiene por compatibilidad)
 export function getTrivia() {
     return new Promise((resolve) => setTimeout(() => resolve(triviaData), 300));
 }
