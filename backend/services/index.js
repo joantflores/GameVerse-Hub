@@ -6,22 +6,33 @@ import 'dotenv/config';
 
 const app = express();
 
-// CORS - allow origin from FRONTEND_URL env var (set this in Render)
-const FRONTEND_URL = process.env.FRONTEND_URL || process.env.FRONTEND || "";
+// =============== CORS FIX ===============
+const FRONTEND_URL = process.env.FRONTEND_URL || process.env.FRONTEND;
 
 app.use(cors({
-  origin: FRONTEND_URL ? [FRONTEND_URL] : true,
+  origin: FRONTEND_URL
+    ? [FRONTEND_URL, "http://localhost:5173"]
+    : "*",   
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
 
 app.use(express.json());
 
-// Rutas principales
 app.use("/api", gameRouter);
-
-// Rutas de email
 app.use("/api/mail", mailRouter);
+
+app.get("/", (req, res) => {
+  res.send("🔥 GameVerse Hub Backend ONLINE");
+});
+
+app.get("/status", (req, res) => {
+  res.json({
+    status: "ok",
+    service: "GameVerse Hub API",
+    time: new Date().toISOString(),
+  });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Backend corriendo en puerto ${PORT}`));
