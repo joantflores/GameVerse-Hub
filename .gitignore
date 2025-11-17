@@ -26,7 +26,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
-.vs/
+.vs
 
 # Build
 dist/
@@ -37,5 +37,4 @@ out/
 # Archivos temporales
 *.tmp
 *.temp
-
 

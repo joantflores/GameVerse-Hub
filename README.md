@@ -1,144 +1,198 @@
-# GameVerse-Hub - Avance
+# 🎮 GameVerse Hub
 
-Este proyecto es un catálogo interactivo de videojuegos que, a través de la API de IGDB, posibilita la búsqueda de juegos y la visualización de estadísticas ficticias sobre jugadores. El proyecto se divide en dos partes: el frontend, que utiliza React, y el backend, que emplea Node.js y Express.
+Plataforma web integral para gamers que centraliza información de diferentes APIs públicas de videojuegos, ofreciendo un catálogo mundial de videojuegos y dinámicas de trivia interactiva.
 
-## Requisitos Previos
+## 📋 Características
 
-Antes de implementar el proyecto, verifica que las próximas herramientas estén instaladas:
+- **Catálogo de Videojuegos**: Búsqueda y filtrado de juegos usando IGDB API con filtros avanzados
+- **Trivia de Videojuegos**: Minijuego de preguntas sobre videojuegos usando Open Trivia API
+- **Sistema de Favoritos**: Guarda tus juegos favoritos (requiere autenticación)
+- **Historial de Actividad**: Registro de búsquedas y resultados de trivia
+- **Dashboard Personalizado**: Resumen de actividad del usuario
+- **Vista Detallada de Juegos**: Información completa con screenshots, rating, géneros y más
 
-- Node.js versión 18 o superior
-- npm igual o superior a 9
+## 🛠️ Tecnologías
 
-- Navegador actualizado (Firefox, Edge, Chrome)
-- Una cuenta de Twitch para desarrollar la aplicación que suministra la API de IGDB
+### Frontend
+- React 19
+- React Router DOM
+- Bootstrap 5
+- Firebase (Authentication y Firestore)
+- Vite
 
-## Configuración del Backend
+### Backend
+- Node.js
+- Express 5
+- Firebase (Authentication y Firestore)
+- APIs externas:
+  - IGDB API (Twitch)
+  - Open Trivia API
 
-1. Instalar dependencias
+## 📦 Instalación
 
+### Prerrequisitos
+
+- Node.js 18+ y npm
+- Cuentas y API keys para:
+  - Twitch Developer (para IGDB)
+  - Firebase (Auth y Firestore)
+
+### Configuración
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone <url-del-repositorio>
+   cd GameVerseHub
+   ```
+
+2. **Configurar Backend**
+   ```bash
+   cd backend
+   npm install
+   cp .env.example .env
+   # Editar .env con tus credenciales reales
+   ```
+
+3. **Configurar Frontend**
+   ```bash
+   cd ../frontend
+   npm install
+   cp .env.example .env
+   # Editar .env con tus credenciales de Firebase
+   ```
+
+4. **Configurar Firebase**
+   - Crear proyecto en [Firebase Console](https://console.firebase.google.com/)
+   - Habilitar Authentication (Email/Password)
+   - Crear Firestore Database
+   - Configurar reglas de seguridad
+   - Ver `FIREBASE_SETUP.md` para más detalles
+
+## ⚙️ Variables de Entorno
+
+### Backend (.env)
+
+```env
+TWITCH_CLIENT_ID=tu_twitch_client_id
+TWITCH_CLIENT_SECRET=tu_twitch_client_secret
+PORT=3000
+```
+
+### Frontend (.env)
+
+```env
+VITE_FIREBASE_API_KEY=tu_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=tu-proyecto.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=tu-proyecto-id
+VITE_FIREBASE_STORAGE_BUCKET=tu-proyecto.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=tu_messaging_sender_id
+VITE_FIREBASE_APP_ID=tu_app_id
+```
+
+## 🚀 Ejecución en Desarrollo
+
+### Backend
 ```bash
 cd backend
-npm install
-
-```
-2. Crear archivo .env en la carpeta backend/. El archivo debe contener:
-
-```bash
-TWITCH_CLIENT_ID=<tu_client_id_de_twitch>
-TWITCH_CLIENT_SECRET=<tu_client_secret_de_twitch>
-PORT=3000
-
-```
-Nota: Para obtener Client ID y Client Secret, crea una nueva aplicación en el panel de desarrollador de Twitch. El tipo de cliente debe ser Confidential. No uses el client secret en el frontend.
-
-3. Ejecutar el backend
-``` bash
+npm start
+# O si tienes un script definido:
 node services/index.js
-
-```
-El backend correrá en http://localhost:3000.
-
-La ruta principal para obtener juegos es: 
-``` bash
-GET http://localhost:3000/api/juegos?nombre=<nombre_del_juego>\
 ```
 
-## Configuración del Frontend
-1. Instalar dependencias
+El backend correrá en `http://localhost:3000`
 
-``` bash
+### Frontend
+```bash
 cd frontend
-npm install
-```
-
-2. Ejecutar el frontend
-``` bash
 npm run dev
 ```
 
-Esto iniciará la aplicación React en http://localhost:5173 (o el puerto que configure React).
+El frontend correrá en `http://localhost:5173`
 
-## 📌 Uso del Proyecto
+## 🔒 Seguridad
 
-### Catálogo de Juegos
-- Ingresa un nombre de juego en la barra de búsqueda.
-- Se mostrarán hasta 5 resultados obtenidos de la API de IGDB.
-- Cada juego incluye: **nombre, resumen, género y portada**.
+**⚠️ CRÍTICO - LEE ANTES DE HACER COMMIT**: 
 
-### Estadísticas de Jugadores
-- Se muestran estadísticas ficticias de jugadores.
-- La tabla incluye:
-  - Nombre del jugador
-  - Partidas jugadas
-  - Victorias
-  - Porcentaje de victorias (calculado automáticamente)
+- **NUNCA** subas archivos `.env` al repositorio - representa un riesgo de seguridad crítico
+- Los archivos `.env` están en `.gitignore` por seguridad (raíz, backend y frontend)
+- Usa `.env.example` como plantilla para documentar las variables necesarias
+- En producción, configura las variables de entorno directamente en el servidor/hosting
+- **Verifica siempre** antes de hacer commit que no hay archivos `.env` en `git status`
 
----
+### Verificación de Seguridad
 
-## 🗂 Estructura de Archivos Importante
+Antes de hacer commit, ejecuta:
 
-- **Catalogo.jsx** → Componente React que muestra los juegos buscados.
-- **Estadisticas.jsx** → Componente React que muestra la tabla de estadísticas.
-- **dataService.js** → Servicio para obtener datos del backend.
-- **igdbService.js** → Servicio del backend que consulta la API de IGDB usando Twitch.
-- **index.js (backend)** → Archivo principal que inicia el servidor Express.
-- **gameRouter.js** → Router que maneja la ruta `/api/juegos`.
+```bash
+git status
+# No debe aparecer ningún archivo .env
+```
 
----
+Si aparece algún `.env`, ejecuta:
+```bash
+git rm --cached backend/.env
+git rm --cached frontend/.env
+```
 
-## 🧩 Dependencias Clave
+Ver `SEGURIDAD.md` y `VERIFICACION_SEGURIDAD.md` para más detalles.
+
+## 📁 Estructura del Proyecto
+
+```
+GameVerseHub/
+├── backend/
+│   ├── services/
+│   │   ├── igdbService.js      # Servicio IGDB (Catálogo de juegos)
+│   │   ├── triviaService.js    # Servicio Trivia (Open Trivia API)
+│   │   └── index.js            # Servidor Express
+│   ├── routes/
+│   │   └── gameRouter.js       # Rutas API
+│   ├── .env.example            # Ejemplo de variables de entorno
+│   └── .gitignore              # Ignora archivos sensibles
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/         # Componentes React
+│   │   │   ├── Catalogo.jsx    # Catálogo de juegos
+│   │   │   ├── Trivia.jsx      # Trivia interactiva
+│   │   │   ├── Dashboard.jsx   # Dashboard principal
+│   │   │   ├── DetalleJuego.jsx # Vista detallada de juegos
+│   │   │   ├── Favoritos.jsx   # Juegos favoritos
+│   │   │   └── Login.jsx       # Autenticación
+│   │   ├── contexts/           # Context API (Auth, Toast)
+│   │   ├── services/           # Servicios de datos
+│   │   ├── config/             # Configuración (Firebase)
+│   │   └── App.jsx
+│   ├── .env.example            # Ejemplo de variables de entorno
+│   └── .gitignore              # Ignora archivos sensibles
+│
+├── .gitignore                  # Gitignore raíz
+├── README.md                   # Documentación principal
+├── FIREBASE_SETUP.md           # Guía de configuración de Firebase
+├── SEGURIDAD.md                # Guía de seguridad
+└── VERIFICACION_SEGURIDAD.md   # Checklist de verificación
+```
+
+## 🌐 Despliegue
 
 ### Backend
-- `express`
-- `cors`
-- `dotenv`
-- `node-fetch`
+- Railway, Heroku, o Firebase Functions
+- Configurar variables de entorno en el panel del hosting
 
 ### Frontend
-- `react`
-- `react-dom`
-- `bootstrap` (opcional para estilos)
+- Vercel, Netlify, o Firebase Hosting
+- Configurar variables de entorno como "Environment Variables"
 
----
+## 📝 APIs Utilizadas
 
-## ⚠️ Advertencias y Consejos
+1. **IGDB API** (vía Twitch) - Catálogo de videojuegos con búsqueda, filtros y detalles
+2. **Open Trivia API** - Preguntas de trivia sobre videojuegos
 
-- **API keys**: No compartas tu Client Secret. Úsalo solo en el backend.
-- **CORS**: El backend está configurado con `cors()` para permitir peticiones desde el frontend.
-- **Tokens de Twitch**: Cada token de acceso tiene una duración limitada (aprox. 60 días). Si se caduca, se deberá obtener uno nuevo.
+## 👥 Autor
 
-### Errores comunes
-- Si el frontend siempre muestra el **"Juego de prueba"**, revisa que el backend esté corriendo y que tu `.env` tenga los valores correctos de Twitch.
-- Evita nombres de carpetas con **espacios o caracteres especiales** al ejecutar Node.js.
+Proyecto desarrollado para el curso de desarrollo web.
 
----
+## 📄 Licencia
 
-## 📚 Referencias
-
-- [Documentación IGDB](https://api-docs.igdb.com/)
-- [Twitch Developer Console](https://dev.twitch.tv/console)
-- [React Docs](https://react.dev/)
-- [Bootstrap Docs](https://getbootstrap.com/docs/)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Este proyecto es de uso educativo.
 
