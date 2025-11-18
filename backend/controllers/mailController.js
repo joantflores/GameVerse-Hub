@@ -1,19 +1,25 @@
-import express from 'express';
-import { sendWelcomeEmail } from '../services/emailService.js';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
 
-const router = express.Router();
+dotenv.config();
 
-router.post('/send-welcome', async (req, res) => {
-  try {
-    const { email, displayName } = req.body;
-    if (!email) return res.status(400).json({ error: 'Email required' });
-
-    await sendWelcomeEmail(email, displayName || '');
-    res.json({ success: true });
-  } catch (err) {
-    console.error('Error sending welcome email:', err);
-    res.status(500).json({ error: 'Failed to send email' });
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
   }
 });
 
-export default router;
+export async function sendWelcomeEmail(toEmail, displayName) {
+  const mailOptions = {
+    from: process.env.SMTP_USER,
+    to: toEmail,
+    subject: 'Welcome to Our Service',
+    text: `Hello ${displayName || 'User'},\n\nWelcome to our service! We're glad to have you on board.\n\nBest regards,\nThe Team`
+  };
+
+  return transporter.sendMail(mailOptions);
+}
