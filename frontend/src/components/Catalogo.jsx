@@ -42,12 +42,7 @@ export default function Catalogo() {
     };
 
     useEffect(() => {
-        if (filtro.trim() === "") {
-            setJuegos([]);
-            setTotalJuegos(0);
-            return;
-        }
-
+        // Allow empty filtro to fetch default games
         setLoading(true);
         setPaginaActual(1);
 
