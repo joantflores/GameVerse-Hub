@@ -18,7 +18,7 @@ export async function sendWelcomeEmail(toEmail, displayName) {
     from: process.env.SMTP_USER,
     to: toEmail,
     subject: 'Welcome to Our Service',
-    text: `Hello ${displayName || 'User'},\n\nWelcome to our service! We're glad to have you on board.\n\nBest regards,\nThe Team`
+    text: `Hello ${displayName || 'User'},\n\nBienvenido a GameVerseHub\n\nSaludos,\nEl equipo de GameVerseHub`
   };
 
   return transporter.sendMail(mailOptions);
