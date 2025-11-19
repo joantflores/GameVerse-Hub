@@ -1,6 +1,6 @@
 // backend/controllers/mailController.js
 import express from "express";
-import { sendWelcomeEmail } from "../services/emailService"; // Import from services
+import { sendWelcomeEmail } from "./../services/emailService.js"; // Ajuste con extensión .js
 import dotenv from "dotenv";
 
 dotenv.config();
