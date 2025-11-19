@@ -11,7 +11,7 @@ import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 const BASE_API = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 function backendUrl(path) {
-    if (!BASE_API) return path; 
+    if (!BASE_API) return path;
     return `${BASE_API}${path.startsWith("/") ? "" : "/"}${path}`;
 }
 
@@ -44,23 +44,22 @@ export async function registrarUsuario(email, password, displayName) {
     }
 }
 
-
 export async function iniciarSesion(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        // Load Firestore user data
+        // Cargar datos del usuario
         const userRef = doc(db, "usuarios", user.uid);
         const userSnap = await getDoc(userRef);
 
         if (userSnap.exists()) {
             const data = userSnap.data();
 
-            // Send welcome email once
+            // Enviar correo de bienvenida solo una vez
             if (!data.welcomeSent) {
                 try {
-                    const sendUrl = backendUrl('/api/mail/send-welcome');
+                    const sendUrl = backendUrl("/api/mail/send-welcome");
 
                     await fetch(sendUrl, {
                         method: "POST",
@@ -72,10 +71,11 @@ export async function iniciarSesion(email, password) {
                         },
                         body: JSON.stringify({
                             email: user.email,
-                            displayName: user.displayName || userData.displayName || ""
+                            displayName: user.displayName || data.displayName || ""
                         })
                     });
 
+                    // Actualizar Firestore
                     await updateDoc(userRef, { welcomeSent: true });
 
                 } catch (sendErr) {
