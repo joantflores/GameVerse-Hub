@@ -4,6 +4,8 @@ import { obtenerDetalleJuego } from "../services/dataService";
 import { useAuth } from "../contexts/AuthContext";
 import { agregarFavorito, eliminarFavorito, obtenerFavoritos } from "../services/firestoreService";
 import { useToast } from "../contexts/ToastContext";
+import { useState } from "react";
+
 
 export default function DetalleJuego() {
     const { id } = useParams();
@@ -12,6 +14,40 @@ export default function DetalleJuego() {
     const [juego, setJuego] = useState(null);
     const [cargando, setCargando] = useState(true);
     const [esFavorito, setEsFavorito] = useState(false);
+    const [reseña,setreseña]=useState("");
+
+    const send_review = async () => 
+        {
+        if (!usuario) {
+            toastError("You must sign in to add a review");
+            return;
+        }
+
+        try {
+            const response = await fetch("/api/reviews", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                gameId: id,
+                userId: usuario.uid,
+                review: reseña
+            })
+            });
+
+            const data = await response.json();
+            if (data.success) {
+            success("Reseña enviada correctamente");
+            setreseña("");
+            } else {
+            toastError("Error al enviar la reseña");
+            }
+        } catch (err) {
+            console.error("Error al enviar reseña:", err);
+            toastError("Error al conectar con el servidor");
+        }
+        };
 
     useEffect(() => {
         cargarJuego();
@@ -207,6 +243,21 @@ export default function DetalleJuego() {
                                     </div>
                                 ))}
                             </div>
+                        </div>
+                    )}
+                    {usuario && (
+                        <div className="mb-4">
+                            <h5>Escribe tu reseña</h5>
+                                <textarea
+                                    className="form-control"
+                                    rows="4"
+                                    value={reseña}
+                                    onChange={(e) => setreseña(e.target.value)}
+                                    placeholder="¿Qué te pareció este juego?"
+                                    />
+                            <button className="btn btn-primary mt-2" onClick={send_review}>
+                            Enviar reseña
+                            </button>
                         </div>
                     )}
                 </div>

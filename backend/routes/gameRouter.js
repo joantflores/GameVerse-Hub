@@ -165,4 +165,20 @@ router.get("/token", async (req, res) => {
   }
 });
 
+router.post("/reviews", async (req, res) => {
+  const { gameId, userId, review } = req.body;
+
+  if (!gameId || !userId || !review) {
+    return res.status(400).json({ success: false, error: "Datos incompletos" });
+  }
+
+  try 
+  {
+    console.log(`Reseña recibida: juego ${gameId}, usuario ${userId}, contenido: ${review}`);
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Error al guardar reseña:", err);
+    res.status(500).json({ success: false, error: "Error interno del servidor" });
+  }
+});
 export default router;
