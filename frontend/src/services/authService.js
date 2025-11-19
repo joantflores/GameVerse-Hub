@@ -31,7 +31,6 @@ export async function registrarUsuario(email, password, displayName) {
             favoritos: [],
             historialBusquedas: [],
             historialTrivia: [],
-            welcomeSent: false
         });
 
         await signOut(auth);
@@ -62,36 +61,7 @@ export async function iniciarSesion(email, password) {
         const userRef = doc(db, "usuarios", user.uid);
         const userSnap = await getDoc(userRef);
 
-        if (userSnap.exists()) {
-            const data = userSnap.data();
-
-            // Send welcome email once
-            if (!data.welcomeSent) {
-                try {
-                    const sendUrl = backendUrl('/api/mail/send-welcome');
-
-                    await fetch(sendUrl, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            ...(import.meta.env.VITE_MAIL_SECRET
-                                ? { "x-mail-secret": import.meta.env.VITE_MAIL_SECRET }
-                                : {})
-                        },
-                        body: JSON.stringify({
-                            email: user.email,
-                            displayName: user.displayName || userSnap.data().displayName || ""
-                        })
-                    });
-
-                    await updateDoc(userRef, { welcomeSent: true });
-
-                } catch (sendErr) {
-                    console.error("Failed to send welcome email:", sendErr);
-                    // Do NOT re-throw the error, allow login to proceed
-                }
-            }
-        }
+        // No longer send welcome email
 
         return { success: true, user };
 
