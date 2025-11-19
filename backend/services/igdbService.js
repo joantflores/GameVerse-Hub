@@ -16,6 +16,9 @@ if (!process.env.TWITCH_CLIENT_ID || !process.env.TWITCH_CLIENT_SECRET) {
 
 // Obtener token de Twitch para IGDB
 async function obtenerToken() {
+    if (!process.env.TWITCH_CLIENT_ID || !process.env.TWITCH_CLIENT_SECRET) {
+        throw new Error("TWITCH_CLIENT_ID o TWITCH_CLIENT_SECRET no configuradas. No se puede obtener token de Twitch.");
+    }
     try {
         const response = await fetch(
             `https://id.twitch.tv/oauth2/token?client_id=${process.env.TWITCH_CLIENT_ID}&client_secret=${process.env.TWITCH_CLIENT_SECRET}&grant_type=client_credentials`,

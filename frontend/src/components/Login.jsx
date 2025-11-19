@@ -19,24 +19,25 @@ export default function Login({ esRegistro = false }) {
 
         try {
             let result;
+
             if (esRegistro) {
                 if (!nombre.trim()) {
                     setError("Name is required");
                     setCargando(false);
                     return;
                 }
+
                 result = await registrarUsuario(email, password, nombre);
 
                 if (result.success) {
-                    // Do not log in automatically after registration
-                    success("Registration successful! Please sign in to continue.");
+                    success("Registration successful! Please sign in.");
                     navigate("/login");
                     setEmail("");
                     setPassword("");
                     setNombre("");
-                    setCargando(false);
                     return;
                 }
+
             } else {
                 result = await iniciarSesion(email, password);
 
@@ -47,12 +48,13 @@ export default function Login({ esRegistro = false }) {
                 }
             }
 
-            const errorMsg = result.error || "Error while " + (esRegistro ? "signing up" : "signing in");
+            const errorMsg = result.error || "Authentication error";
             setError(errorMsg);
             toastError(errorMsg);
+
         } catch (err) {
-            setError("An unexpected error occurred");
             console.error(err);
+            setError("Unexpected error. Try again later.");
         } finally {
             setCargando(false);
         }
@@ -69,21 +71,17 @@ export default function Login({ esRegistro = false }) {
                             </h2>
 
                             {error && (
-                                <div className="alert alert-danger" role="alert">
-                                    {error}
-                                </div>
+                                <div className="alert alert-danger">{error}</div>
                             )}
 
                             <form onSubmit={handleSubmit}>
                                 {esRegistro && (
                                     <div className="mb-3">
-                                        <label htmlFor="nombre" className="form-label">
-                                            Name
-                                        </label>
+                                        <label htmlFor="nombre" className="form-label">Name</label>
                                         <input
+                                            id="nombre"
                                             type="text"
                                             className="form-control"
-                                            id="nombre"
                                             value={nombre}
                                             onChange={(e) => setNombre(e.target.value)}
                                             placeholder="Your name"
@@ -93,13 +91,11 @@ export default function Login({ esRegistro = false }) {
                                 )}
 
                                 <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">
-                                        Email
-                                    </label>
+                                    <label htmlFor="email" className="form-label">Email</label>
                                     <input
+                                        id="email"
                                         type="email"
                                         className="form-control"
-                                        id="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="you@example.com"
@@ -108,13 +104,11 @@ export default function Login({ esRegistro = false }) {
                                 </div>
 
                                 <div className="mb-3">
-                                    <label htmlFor="password" className="form-label">
-                                        Password
-                                    </label>
+                                    <label htmlFor="password" className="form-label">Password</label>
                                     <input
+                                        id="password"
                                         type="password"
                                         className="form-control"
-                                        id="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         placeholder="••••••••"
@@ -122,7 +116,9 @@ export default function Login({ esRegistro = false }) {
                                         minLength={6}
                                     />
                                     {esRegistro && (
-                                        <small className="text-muted">Minimum 6 characters</small>
+                                        <small className="text-muted">
+                                            Minimum 6 characters
+                                        </small>
                                     )}
                                 </div>
 
@@ -133,7 +129,7 @@ export default function Login({ esRegistro = false }) {
                                 >
                                     {cargando ? (
                                         <>
-                                            <span className="spinner-border spinner-border-sm me-2" role="status"></span>
+                                            <span className="spinner-border spinner-border-sm me-2"></span>
                                             {esRegistro ? "Signing up..." : "Signing in..."}
                                         </>
                                     ) : (
@@ -143,14 +139,15 @@ export default function Login({ esRegistro = false }) {
                             </form>
 
                             <div className="text-center mt-3">
-                                <small className="text-muted">
+                                <small>
                                     {esRegistro ? (
-                                        <>Already have an account? <a href="/login">Sign in here</a></>
+                                        <>Already have an account? <a href="/login">Sign in</a></>
                                     ) : (
-                                        <>Don't have an account? <a href="/registro">Sign up here</a></>
+                                        <>Don’t have an account? <a href="/registro">Sign up</a></>
                                     )}
                                 </small>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -158,4 +155,3 @@ export default function Login({ esRegistro = false }) {
         </div>
     );
 }
-

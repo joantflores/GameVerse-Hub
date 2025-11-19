@@ -100,7 +100,7 @@ export async function getPreguntasTrivia(opciones = {}) {
         if (categoria) params.append("categoria", categoria);
         if (dificultad) params.append("dificultad", dificultad);
         
-        const url = apiUrl(`/api/trivia/preguntas?${params.toString()}`);
+        const url = apiUrl(`/api/trivia/questions?${params.toString()}`); // Changed to /api/trivia/questions
         const data = await fetchJson(url);
         
         return Array.isArray(data) ? data : [];
