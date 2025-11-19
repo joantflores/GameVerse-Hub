@@ -40,7 +40,15 @@ export async function registrarUsuario(email, password, displayName) {
 
     } catch (error) {
         console.error("Error registering user:", error);
-        return { success: false, error: error.message };
+        let errorMessage = "Failed to register. Please try again.";
+        if (error.code === "auth/email-already-in-use") {
+            errorMessage = "An account with this email already exists.";
+        } else if (error.code === "auth/weak-password") {
+            errorMessage = "Password is too weak. Please choose a stronger password.";
+        } else if (error.code === "auth/invalid-email") {
+            errorMessage = "The email address is not valid.";
+        }
+        return { success: false, error: errorMessage };
     }
 }
 
@@ -72,7 +80,7 @@ export async function iniciarSesion(email, password) {
                         },
                         body: JSON.stringify({
                             email: user.email,
-                            displayName: user.displayName || userData.displayName || ""
+                            displayName: user.displayName || userSnap.data().displayName || ""
                         })
                     });
 
@@ -88,7 +96,15 @@ export async function iniciarSesion(email, password) {
 
     } catch (error) {
         console.error("Error signing in:", error);
-        return { success: false, error: error.message };
+        let errorMessage = "Failed to sign in. Please try again.";
+        if (error.code === "auth/invalid-email") {
+            errorMessage = "The email address is not valid.";
+        } else if (error.code === "auth/user-disabled") {
+            errorMessage = "This user account has been disabled.";
+        } else if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
+            errorMessage = "Incorrect email or password.";
+        }
+        return { success: false, error: errorMessage };
     }
 }
 

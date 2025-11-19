@@ -1,37 +1,11 @@
 // backend/controllers/mailController.js
 import express from "express";
-import nodemailer from "nodemailer";
+import { sendWelcomeEmail } from "../services/emailService"; // Import from services
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const router = express.Router();
-
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-});
-
-
-// Función exportada para envío desde el servidor (la mantengo)
-export async function sendWelcomeEmail(toEmail, displayName) {
-  const mailOptions = {
-    from: process.env.EMAIL_FROM || process.env.SMTP_USER,
-    to: toEmail,
-    subject: "Bienvenido a GameVerseHub 🎮",
-    text: `Hola ${displayName || "usuario"},\n\n¡Bienvenido a GameVerseHub! Gracias por registrarte.\n\nSaludos,\nEl equipo de GameVerseHub`
-  };
-
-  return transporter.sendMail(mailOptions);
-}
 
 // Endpoint público controlado para que lo llame tu frontend o el backend (protegido por SECRET opcional)
 router.post("/send-welcome", async (req, res) => {
