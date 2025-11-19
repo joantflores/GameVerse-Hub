@@ -4,154 +4,86 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "../contexts/ToastContext";
 
 export default function Login({ esRegistro = false }) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [nombre, setNombre] = useState("");
-    const [error, setError] = useState("");
-    const [cargando, setCargando] = useState(false);
-    const navigate = useNavigate();
-    const { success, error: toastError } = useToast();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [error, setError] = useState("");
+  const [cargando, setCargando] = useState(false);
+  const navigate = useNavigate();
+  const { success: toastSuccess, error: toastError } = useToast();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError("");
-        setCargando(true);
-
-        try {
-            let result;
-
-            if (esRegistro) {
-                if (!nombre.trim()) {
-                    setError("Name is required");
-                    setCargando(false);
-                    return;
-                }
-
-                result = await registrarUsuario(email, password, nombre);
-
-                if (result.success) {
-                    success("Registration successful! Please sign in.");
-                    navigate("/login");
-                    setEmail("");
-                    setPassword("");
-                    setNombre("");
-                    return;
-                }
-
-            } else {
-                result = await iniciarSesion(email, password);
-
-                if (result.success) {
-                    success("Welcome back!");
-                    navigate("/");
-                    return;
-                }
-            }
-
-            const errorMsg = result.error || "Authentication error";
-            setError(errorMsg);
-            toastError(errorMsg);
-
-        } catch (err) {
-            console.error(err);
-            setError("Unexpected error. Try again later.");
-        } finally {
-            setCargando(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setCargando(true);
+    try {
+      if (esRegistro) {
+        const res = await registrarUsuario(email, password, nombre);
+        if (!res.success) {
+          setError(res.message || "No se pudo registrar");
+          toastError?.(res.message || "No se pudo registrar");
+          setCargando(false);
+          return;
         }
-    };
+        toastSuccess?.("Registro exitoso. Revisa tu correo para verificar tu cuenta.");
+        // after register, you might want to redirect to a verify page or home
+        navigate("/");
+      } else {
+        const res = await iniciarSesion(email, password);
+        if (!res.success) {
+          setError(res.message || "No se pudo iniciar sesión");
+          toastError?.(res.message || "No se pudo iniciar sesión");
+          setCargando(false);
+          return;
+        }
+        toastSuccess?.("Bienvenido de nuevo");
+        navigate("/");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Ocurrió un error inesperado.");
+      toastError?.("Ocurrió un error inesperado.");
+    } finally {
+      setCargando(false);
+    }
+  };
 
-    return (
-        <div className="container mt-4">
-            <div className="row justify-content-center">
-                <div className="col-md-5">
-                    <div className="card">
-                        <div className="card-body">
-                            <h2 className="card-title mb-4 text-center">
-                                {esRegistro ? "📝 Sign Up" : "🔐 Sign In"}
-                            </h2>
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <form onSubmit={handleSubmit} className="max-w-md w-full p-6 bg-white rounded-lg shadow">
+        <h2 className="text-2xl mb-4">{esRegistro ? "Crear cuenta" : "Iniciar sesión"}</h2>
 
-                            {error && (
-                                <div className="alert alert-danger">{error}</div>
-                            )}
+        {error && <div className="mb-4 text-red-600">{error}</div>}
 
-                            <form onSubmit={handleSubmit}>
-                                {esRegistro && (
-                                    <div className="mb-3">
-                                        <label htmlFor="nombre" className="form-label">Name</label>
-                                        <input
-                                            id="nombre"
-                                            type="text"
-                                            className="form-control"
-                                            value={nombre}
-                                            onChange={(e) => setNombre(e.target.value)}
-                                            placeholder="Your name"
-                                            required
-                                        />
-                                    </div>
-                                )}
+        {esRegistro && (
+          <div className="mb-4">
+            <label className="block text-sm">Nombre</label>
+            <input value={nombre} onChange={(e) => setNombre(e.target.value)} className="w-full p-2 border rounded" />
+          </div>
+        )}
 
-                                <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email</label>
-                                    <input
-                                        id="email"
-                                        type="email"
-                                        className="form-control"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="you@example.com"
-                                        required
-                                    />
-                                </div>
-
-                                <div className="mb-3">
-                                    <label htmlFor="password" className="form-label">Password</label>
-                                    <input
-                                        id="password"
-                                        type="password"
-                                        className="form-control"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="••••••••"
-                                        required
-                                        minLength={6}
-                                    />
-                                    {esRegistro && (
-                                        <small className="text-muted">
-                                            Minimum 6 characters
-                                        </small>
-                                    )}
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className="btn btn-primary w-100 mb-2"
-                                    disabled={cargando}
-                                >
-                                    {cargando ? (
-                                        <>
-                                            <span className="spinner-border spinner-border-sm me-2"></span>
-                                            {esRegistro ? "Signing up..." : "Signing in..."}
-                                        </>
-                                    ) : (
-                                        esRegistro ? "Sign Up" : "Sign In"
-                                    )}
-                                </button>
-                            </form>
-
-                            <div className="text-center mt-3">
-                                <small>
-                                    {esRegistro ? (
-                                        <>Already have an account? <a href="/login">Sign in</a></>
-                                    ) : (
-                                        <>Don’t have an account? <a href="/registro">Sign up</a></>
-                                    )}
-                                </small>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className="mb-4">
+          <label className="block text-sm">Correo</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 border rounded" />
         </div>
-    );
+
+        <div className="mb-4">
+          <label className="block text-sm">Contraseña</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-2 border rounded" />
+        </div>
+
+        <button type="submit" disabled={cargando} className="w-full py-2 rounded bg-blue-600 text-white">
+          {cargando ? (esRegistro ? "Creando..." : "Ingresando...") : (esRegistro ? "Crear cuenta" : "Iniciar sesión")}
+        </button>
+
+        <div className="mt-4 text-center text-sm">
+          {esRegistro ? (
+            <>Already have an account? <a href="/login">Sign in</a></>
+          ) : (
+            <>Don’t have an account? <a href="/registro">Sign up</a></>
+          )}
+        </div>
+      </form>
+    </div>
+  );
 }
