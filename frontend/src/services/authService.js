@@ -60,14 +60,19 @@ export async function iniciarSesion(email, password) {
             // Send welcome email once
             if (!data.welcomeSent) {
                 try {
-                    const url = backendUrl("/api/send-welcome");
+                    const sendUrl = backendUrl('/api/mail/send-welcome');
 
-                    await fetch(url, {
+                    await fetch(sendUrl, {
                         method: "POST",
-                        headers: { "Content-Type": "application/json" },
+                        headers: {
+                            "Content-Type": "application/json",
+                            ...(import.meta.env.VITE_MAIL_SECRET
+                                ? { "x-mail-secret": import.meta.env.VITE_MAIL_SECRET }
+                                : {})
+                        },
                         body: JSON.stringify({
                             email: user.email,
-                            displayName: user.displayName || data.displayName || ""
+                            displayName: user.displayName || userData.displayName || ""
                         })
                     });
 
