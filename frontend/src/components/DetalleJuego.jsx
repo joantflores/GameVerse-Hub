@@ -4,7 +4,6 @@ import { obtenerDetalleJuego } from "../services/dataService";
 import { useAuth } from "../contexts/AuthContext";
 import { agregarFavorito, eliminarFavorito, obtenerFavoritos } from "../services/firestoreService";
 import { useToast } from "../contexts/ToastContext";
-import { useState } from "react";
 
 
 export default function DetalleJuego() {
