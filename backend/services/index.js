@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import gameRouter from "../routes/gameRouter.js";
 import mailRouter from "../controllers/mailController.js"; // default export (router)
-import { sendWelcomeEmail } from "../controllers/mailController.js"; 
 import "dotenv/config";
 
 
