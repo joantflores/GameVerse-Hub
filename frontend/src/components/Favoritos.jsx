@@ -78,7 +78,7 @@ export default function Favoritos() {
             {favoritos.length === 0 ? (
                 <div className="alert alert-info" role="alert">
                     <h4 className="alert-heading">You don't have favorites yet</h4>
-                    <p>Start adding games to your favorites from the <Link to="/">catalog</Link>.</p>
+                    <p>Start adding games to your favorites from the <Link to="/catalogo">catalog</Link>.</p>
                 </div>
             ) : (
                 <div className="row">
