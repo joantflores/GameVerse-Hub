@@ -88,6 +88,8 @@ export async function iniciarSesion(email, password) {
 
                 } catch (sendErr) {
                     console.error("Failed to send welcome email:", sendErr);
+                    // Re-throw the error to be caught by the outer try-catch
+                    throw new Error("Failed to send welcome email: " + sendErr.message);
                 }
             }
         }
