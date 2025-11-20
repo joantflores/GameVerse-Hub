@@ -72,38 +72,60 @@
     }
 }
 
-/* GLOBAL DESIGN REFRESH */
+
+/* === GAMER THEME REDESIGN v2 === */
 :root {
-  --color-primary: #6c5ce7;
-  --color-primary-dark: #4a38c7;
-  --color-secondary: #00cec9;
-  --color-accent: #fdcb6e;
-  --color-bg: #0d0d0f;
-  --color-surface: #1a1a1d;
-  --text-primary: #ffffff;
-  --text-secondary: #cfcfcf;
-  --error: #e84141;
-  --success: #2ecc71;
+  --g-primary: #0ff0fc;        /* neon cyan */
+  --g-secondary: #ff2eec;      /* neon magenta */
+  --g-accent: #7b2ff7;         /* purple neon */
+  --g-bg: #07070a;             /* deep near-black */
+  --g-surface: #111118;        /* dark card surface */
+  --g-text: #e8e8e8;           /* light grey for readability */
+  --g-text-dim: #b8b8b8;       /* dim text */
 }
+
+/* GLOBAL */
 body {
-  background: var(--color-bg) !important;
-  color: var(--text-primary) !important;
+  background: var(--g-bg) !important;
+  color: var(--g-text) !important;
   font-family: 'Inter', sans-serif;
 }
+
+/* BUTTONS */
 button {
-  background: var(--color-primary) !important;
-  color: var(--text-primary) !important;
-  border-radius: 8px;
-  padding: 12px 18px;
-  border: none;
-  transition: all .2s ease;
+  background: linear-gradient(90deg, var(--g-primary), var(--g-secondary)) !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 12px 20px !important;
+  font-weight: 600 !important;
+  transition: 0.25s ease !important;
 }
 button:hover {
-  background: var(--color-primary-dark) !important;
-  transform: translateY(-2px);
+  opacity: 0.85 !important;
+  transform: translateY(-3px) !important;
 }
+
+/* CARDS / BOXES */
 .card, .container, .box {
-  background: var(--color-surface) !important;
-  color: var(--text-primary) !important;
-  border-radius: 12px;
+  background: var(--g-surface) !important;
+  color: var(--g-text) !important;
+  border-radius: 14px !important;
+  padding: 20px !important;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.12) !important;
+}
+
+/* HEADERS */
+h1, h2, h3, h4 {
+  color: var(--g-primary) !important;
+  letter-spacing: 1px !important;
+}
+
+/* LINKS */
+a {
+  color: var(--g-secondary) !important;
+  text-decoration: none !important;
+}
+a:hover {
+  color: var(--g-primary) !important;
 }
