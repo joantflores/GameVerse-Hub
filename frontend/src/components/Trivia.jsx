@@ -14,7 +14,7 @@ export default function Trivia() {
     const [mostrarConfiguracion, setMostrarConfiguracion] = useState(true);
     const [configuracion, setConfiguracion] = useState({
         cantidad: 10,
-        dificultad: ""
+        dificultad: "" // "" = Any Difficulty
     });
     const [juegoTerminado, setJuegoTerminado] = useState(false);
 
@@ -99,7 +99,6 @@ export default function Trivia() {
         setMostrarConfiguracion(true);
     };
 
-    // Render (configuration / loading / game / results)
     if (mostrarConfiguracion) {
         return (
             <div className="container mt-4">
@@ -107,8 +106,8 @@ export default function Trivia() {
                     <div className="col-md-8">
                         <div className="card">
                             <div className="card-body">
-                                <h2 className="card-title mb-4">🎮 Video Games Trivia</h2>
-                                <p className="text-muted mb-4">Test your knowledge about video games.</p>
+                                <h2 className="card-title mb-4">🎮 GameVerse Trivia</h2>
+                                <p className="text-muted mb-4">Test your knowledge about video games</p>
 
                                 <div className="mb-3">
                                     <label htmlFor="cantidad" className="form-label">
@@ -123,10 +122,6 @@ export default function Trivia() {
                                         value={configuracion.cantidad}
                                         onChange={(e) => setConfiguracion({ ...configuracion, cantidad: parseInt(e.target.value) })}
                                     />
-                                    <div className="d-flex justify-content-between text-muted small">
-                                        <span>5</span>
-                                        <span>20</span>
-                                    </div>
                                 </div>
 
                                 <div className="mb-4">
@@ -177,7 +172,7 @@ export default function Trivia() {
         let mensaje = "";
         let emoji = "";
         if (porcentaje >= 80) { mensaje = "Excellent!"; emoji = "🌟"; }
-        else if (porcentaje >= 60) { mensaje = "Very good!"; emoji = "👍"; }
+        else if (porcentaje >= 60) { mensaje = "Good!"; emoji = "👍"; }
         else if (porcentaje >= 40) { mensaje = "Not bad"; emoji = "📚"; }
         else { mensaje = "Keep practicing"; emoji = "💡"; }
 
@@ -190,10 +185,19 @@ export default function Trivia() {
                                 <h1 className="mb-3">{emoji}</h1>
                                 <h3 className="mb-3">🎉 Trivia Completed</h3>
                                 <h2 className="mb-3">Score: <strong>{puntaje}</strong> / {preguntas.length}</h2>
+
                                 <div className="progress mb-3" style={{ height: "30px" }}>
-                                    <div className={`progress-bar ${porcentaje >= 80 ? "bg-success" : porcentaje >= 60 ? "bg-info" : porcentaje >= 40 ? "bg-warning" : "bg-danger"}`}
-                                         role="progressbar" style={{ width: `${porcentaje}%` }}>{porcentaje}%</div>
+                                    <div className={`progress-bar ${
+                                        porcentaje >= 80 ? "bg-success" :
+                                        porcentaje >= 60 ? "bg-info" :
+                                        porcentaje >= 40 ? "bg-warning" : "bg-danger"
+                                    }`}
+                                        role="progressbar"
+                                        style={{ width: `${porcentaje}%` }}>
+                                        {porcentaje}%
+                                    </div>
                                 </div>
+
                                 <p className="h5 mb-4">{mensaje}</p>
                                 <button className="btn btn-primary btn-lg me-2" onClick={reiniciarJuego}>Play Again</button>
                             </div>
@@ -215,6 +219,8 @@ export default function Trivia() {
         <div className="container mt-4">
             <div className="row justify-content-center">
                 <div className="col-md-10 col-lg-8">
+
+                    {/* Barra de progreso */}
                     <div className="mb-3">
                         <div className="d-flex justify-content-between mb-1">
                             <small className="text-muted">
@@ -229,9 +235,6 @@ export default function Trivia() {
                                 className="progress-bar progress-bar-striped progress-bar-animated"
                                 role="progressbar"
                                 style={{ width: `${porcentajeProgreso}%` }}
-                                aria-valuenow={porcentajeProgreso}
-                                aria-valuemin="0"
-                                aria-valuemax="100"
                             >
                                 {Math.round(porcentajeProgreso)}%
                             </div>
@@ -240,16 +243,22 @@ export default function Trivia() {
 
                     <div className="card">
                         <div className="card-body p-4">
+
+                            {/* Categoría y dificultad */}
                             <div className="d-flex justify-content-between mb-3">
                                 <span className="badge bg-secondary">{preguntaActual.categoria}</span>
-                                <span className={`badge ${
-                                    preguntaActual.dificultad === "easy" ? "bg-success" :
-                                    preguntaActual.dificultad === "medium" ? "bg-warning" :
-                                    "bg-danger"
-                                }`}>
-                                    {preguntaActual.dificultad === "easy" ? "Easy" :
-                                     preguntaActual.dificultad === "medium" ? "Medium" : "Hard"}
-                                </span>
+
+                                {/* ❗ Mostrar dificultad SOLO si configuracion.dificultad === "" */}
+                                {configuracion.dificultad === "" && (
+                                    <span className={`badge ${
+                                        preguntaActual.dificultad === "easy" ? "bg-success" :
+                                        preguntaActual.dificultad === "medium" ? "bg-warning" :
+                                        "bg-danger"
+                                    }`}>
+                                        {preguntaActual.dificultad === "easy" ? "Easy" :
+                                        preguntaActual.dificultad === "medium" ? "Medium" : "Hard"}
+                                    </span>
+                                )}
                             </div>
 
                             <h4 className="card-title mb-4">{preguntaActual.pregunta}</h4>
@@ -298,6 +307,7 @@ export default function Trivia() {
                                     </button>
                                 </div>
                             )}
+
                         </div>
                     </div>
                 </div>
