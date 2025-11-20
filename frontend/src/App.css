@@ -140,3 +140,47 @@ a {
 a:hover {
   color: var(--primary) !important;
 }
+
+
+/* Added Neon Dark Theme Enhancements */
+body, p, span, h1, h2, h3, h4, h5, h6 {
+  color: var(--text-light) !important;
+}
+
+.text-muted, .subtitle, .small-text {
+  color: rgba(224, 230, 255, 0.5) !important;
+}
+
+.card {
+  background: var(--bg-light) !important;
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+  box-shadow: 0 0 15px rgba(24, 160, 251, 0.08) !important;
+  border-radius: 14px !important;
+  padding: 16px;
+}
+
+table {
+  background: var(--bg-light) !important;
+  color: var(--text-light) !important;
+}
+table tr, table td, table th {
+  background: var(--bg-light) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+table tr:hover {
+  background: rgba(255,255,255,0.05) !important;
+}
+
+button, .btn {
+  background: var(--primary) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  border: none !important;
+  padding: 8px 16px;
+  box-shadow: 0 0 8px rgba(24, 160, 251, 0.7);
+  transition: 0.2s;
+}
+button:hover, .btn:hover {
+  background: var(--accent) !important;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.8);
+}
