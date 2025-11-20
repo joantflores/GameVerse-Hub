@@ -125,7 +125,6 @@ export default function Dashboard() {
             <div className="row mb-4">
                 <div className="col-12">
                     <h1>👋 Hello, {userData?.displayName || usuario.email}!</h1>
-                    <p className="text-muted">Welcome to your Dashboard</p>
                 </div>
             </div>
 
