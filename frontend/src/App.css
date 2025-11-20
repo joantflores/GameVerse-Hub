@@ -126,10 +126,10 @@ button:hover {
   background: #14141a !important;
 }
 .dashboard-section {
-  background: #111119 !important;
+  background: var(--bg-light) !important;
 }
 .cards-section {
-  background: #16161d !important;
+  background: var(--bg-dark) !important;
 }
 
 /* Links */
