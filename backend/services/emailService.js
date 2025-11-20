@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 
+// Read SMTP config from env
 const SMTP_HOST = process.env.SMTP_HOST || "smtp.gmail.com";
 const SMTP_PORT = parseInt(process.env.SMTP_PORT || "465", 10);
 const SMTP_SECURE = (process.env.SMTP_SECURE || "true") === "true"; // true for 465, false for 587
@@ -24,8 +25,8 @@ export async function sendWelcomeEmail(toEmail, toName) {
   }
 
   const subject = "Welcome to GameVerse Hub";
-  const text = `Hello ${toName || ''},\n\nWelcome to GameVerse Hub! We're glad to have you. Explore games, play trivia and have fun!\n\nï¿½ The GameVerse Hub Team`;
-  const html = `<p>Hello ${toName || ''},</p><p>Welcome to <strong>GameVerse Hub</strong>! We're glad to have you. Explore games, play trivia and have fun!</p><p>ï¿½ The GameVerse Hub Team</p>`;
+  const text = `Hello ${toName || ''},\n\nWelcome to GameVerse Hub! We're glad to have you. Explore games, play trivia and have fun!\n\n— The GameVerse Hub Team`;
+  const html = `<p>Hello ${toName || ''},</p><p>Welcome to <strong>GameVerse Hub</strong>! We're glad to have you. Explore games, play trivia and have fun!</p><p>— The GameVerse Hub Team</p>`;
 
   const info = await transporter.sendMail({
     from: FROM,
