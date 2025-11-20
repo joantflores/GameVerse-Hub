@@ -8,7 +8,7 @@ export default function Dashboard() {
     const { usuario, userData } = useAuth();
     const [historialBusquedas, setHistorialBusquedas] = useState([]);
     const [historialTrivia, setHistorialTrivia] = useState([]);
-       const [favoritos, setFavoritos] = useState([]);
+    const [favoritos, setFavoritos] = useState([]);
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
@@ -48,36 +48,68 @@ export default function Dashboard() {
 
     const formatearFecha = (timestamp) => {
         if (!timestamp) return "";
-        if (timestamp instanceof Timestamp) return timestamp.toDate().toLocaleDateString("en-US");
-        if (timestamp.seconds) return new Date(timestamp.seconds * 1000).toLocaleDateString("en-US");
+        if (timestamp instanceof Timestamp) {
+            return timestamp.toDate().toLocaleDateString("en-US");
+        }
+        if (timestamp.seconds) {
+            return new Date(timestamp.seconds * 1000).toLocaleDateString("en-US");
+        }
         return new Date(timestamp).toLocaleDateString("en-US");
     };
 
-    // 🔥 Estilos del tema Dark Neon Gamer:
-    const cardStyle = {
-        background: "#0a0f1f",
-        border: "1px solid #18a0fb",
-        color: "white",
-        borderRadius: "10px"
-    };
-
-    const cardHeaderStyle = {
-        background: "#10182f",
-        color: "#18a0fb",
-        borderBottom: "1px solid #18a0fb"
-    };
-
-    const neonPurple = { color: "#8b5cf6" };
-    const neonBlue = { color: "#18a0fb" };
-
     if (!usuario) {
-        return <div className="text-center mt-5 text-white">You are not logged in.</div>;
+        return (
+            <div className="container mt-4">
+                <div className="row justify-content-center">
+                    <div className="col-md-8">
+                        <div className="text-center py-5">
+                            <h1 className="display-4 mb-4">🎮 GameVerse Hub</h1>
+                            <p className="lead mb-4">
+                                Your central hub for everything about video games. Explore catalogs,
+                                play trivia and discover your favorite games.
+                            </p>
+                            <div className="row g-3 mt-4 justify-content-center">
+                                <div className="col-md-5">
+                                    <div className="card h-100">
+                                        <div className="card-body text-center">
+                                            <h3>🎯 Catalog</h3>
+                                            <p>Explore thousands of games with advanced search and filters</p>
+                                            <Link to="/catalogo" className="btn btn-primary">
+                                                Browse Catalog
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-5">
+                                    <div className="card h-100">
+                                        <div className="card-body text-center">
+                                            <h3>🎲 Trivia</h3>
+                                            <p>Test your knowledge about video games</p>
+                                            <Link to="/trivia" className="btn btn-primary">
+                                                Play Trivia
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="mt-5">
+                                <p className="text-muted">
+                                    <Link to="/login">Sign in</Link> or{" "}
+                                    <Link to="/registro">sign up</Link> to save your favorites
+                                    and view your activity history.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     if (cargando) {
         return (
             <div className="container mt-4 text-center">
-                <div className="spinner-border text-primary" role="status">
+                <div className="spinner-border" role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
@@ -89,76 +121,86 @@ export default function Dashboard() {
         : 0;
 
     return (
-        <div className="container mt-4" style={{ color: "white" }}>
+        <div className="container mt-4">
             <div className="row mb-4">
                 <div className="col-12">
-                    <h1 style={{ color: "#18a0fb" }}>
-                        👋 Hello, {userData?.displayName || usuario.email}!
-                    </h1>
+                    <h1>👋 Hello, {userData?.displayName || usuario.email}!</h1>
                 </div>
             </div>
 
-            {/* Quick Stats */}
+            {/* Quick stats */}
             <div className="row mb-4">
                 <div className="col-md-4 mb-3">
-                    <div className="card text-center" style={cardStyle}>
+                    <div className="card text-center">
                         <div className="card-body">
-                            <h2 className="display-4" style={neonBlue}>{favoritos.length}</h2>
-                            <p>⭐ Favorite Games</p>
-                            <Link to="/favoritos" className="btn btn-outline-primary btn-sm">
+                            <h2 className="display-4">{favoritos.length}</h2>
+                            <p className="card-text">⭐ Favorite Games</p>
+                            <Link to="/favoritos" className="btn btn-sm btn-outline-primary">
                                 View All
                             </Link>
                         </div>
                     </div>
                 </div>
-
                 <div className="col-md-4 mb-3">
-                    <div className="card text-center" style={cardStyle}>
+                    <div className="card text-center">
                         <div className="card-body">
-                            <h2 className="display-4" style={neonPurple}>{historialTrivia.length}</h2>
-                            <p>🎲 Trivia Games Played</p>
+                            <h2 className="display-4">{historialTrivia.length}</h2>
+                            <p className="card-text">🎲 Trivia Games Played</p>
                             {mejorPuntajeTrivia > 0 && (
-                                <small style={neonBlue}>
+                                <small className="text-muted">
                                     Best score: {mejorPuntajeTrivia}
                                 </small>
                             )}
                         </div>
                     </div>
                 </div>
-
                 <div className="col-md-4 mb-3">
-                    <div className="card text-center" style={cardStyle}>
+                    <div className="card text-center">
                         <div className="card-body">
-                            <h2 className="display-4" style={neonBlue}>{historialBusquedas.length}</h2>
-                            <p>🔍 Recent Searches</p>
+                            <h2 className="display-4">{historialBusquedas.length}</h2>
+                            <p className="card-text">🔍 Recent Searches</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="row">
-                {/* FAVORITOS */}
+                {/* Recent favorites */}
                 <div className="col-md-6 mb-4">
-                    <div className="card" style={cardStyle}>
-                        <div className="card-header" style={cardHeaderStyle}>
+                    <div className="card">
+                        <div className="card-header d-flex justify-content-between align-items-center">
                             <h5 className="mb-0">⭐ Recent Favorites</h5>
+                            <Link to="/favoritos" className="btn btn-sm btn-outline-primary">
+                                View All
+                            </Link>
                         </div>
                         <div className="card-body">
                             {favoritos.length === 0 ? (
-                                <p className="text-muted">No favorites yet.</p>
+                                <p className="text-muted">
+                                    You don't have favorites yet.{" "}
+                                    <Link to="/catalogo">Explore the catalog</Link> to add some.
+                                </p>
                             ) : (
                                 <div className="row g-2">
                                     {favoritos.map((juego) => (
                                         <div key={juego.id} className="col-6">
-                                            <Link to={`/juego/${juego.id}`} className="text-decoration-none">
-                                                <div className="card h-100" style={{ background: "#10182f", border: "1px solid #8b5cf6" }}>
-                                                    <img
-                                                        src={juego.cover?.url.replace("t_thumb", "t_cover_small")}
-                                                        className="card-img-top"
-                                                        style={{ height: "110px", objectFit: "cover" }}
-                                                    />
+                                            <Link 
+                                                to={`/juego/${juego.id}`}
+                                                className="text-decoration-none"
+                                            >
+                                                <div className="card h-100">
+                                                    {juego.cover?.url && (
+                                                        <img
+                                                            src={juego.cover.url.replace("t_thumb", "t_cover_small")}
+                                                            className="card-img-top"
+                                                            alt={juego.name}
+                                                            style={{ height: "100px", objectFit: "cover" }}
+                                                        />
+                                                    )}
                                                     <div className="card-body p-2">
-                                                        <h6 className="text-truncate" style={neonBlue}>{juego.name}</h6>
+                                                        <h6 className="card-title small mb-0 text-truncate">
+                                                            {juego.name}
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </Link>
@@ -170,35 +212,65 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                {/* TRIVIA HISTORY */}
+                {/* Trivia history */}
                 <div className="col-md-6 mb-4">
-                    <div className="card" style={cardStyle}>
-                        <div className="card-header" style={cardHeaderStyle}>
+                    <div 
+                        className="card"
+                        style={{
+                            background: "#0a0f1f",
+                            border: "1px solid #18a0fb",
+                            color: "white"
+                        }}
+                    >
+                        <div 
+                            className="card-header"
+                            style={{
+                                background: "#10182f",
+                                borderBottom: "1px solid #18a0fb",
+                                color: "#18a0fb"
+                            }}
+                        >
                             <h5 className="mb-0">🎲 Trivia History</h5>
                         </div>
+
                         <div className="card-body">
                             {historialTrivia.length === 0 ? (
-                                <p className="text-muted">You haven't played trivia yet.</p>
+                                <p className="text-muted">
+                                    You haven't played trivia yet.{" "}
+                                    <Link to="/trivia" style={{ color: "#8b5cf6" }}>
+                                        Play your first game!
+                                    </Link>
+                                </p>
                             ) : (
                                 <div className="list-group list-group-flush">
                                     {historialTrivia.map((resultado, index) => (
-                                        <div key={index} className="list-group-item" 
+                                        <div
+                                            key={index}
+                                            className="list-group-item"
                                             style={{
                                                 background: "#0a0f1f",
-                                                borderBottom: "1px solid #10182f",
-                                                color: "white"
-                                            }}>
-                                            <div className="d-flex justify-content-between">
+                                                color: "white",
+                                                borderBottom: "1px solid #10182f"
+                                            }}
+                                        >
+                                            <div className="d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    <strong style={neonBlue}>
-                                                        {resultado.puntaje} / {resultado.totalPreguntas}
+                                                    <strong style={{ color: "#18a0fb" }}>
+                                                        {resultado.puntaje || 0} / {resultado.totalPreguntas || 0}
                                                     </strong>
-                                                    <span className="badge ms-2" 
-                                                        style={{ background: "#8b5cf6", color: "white" }}>
-                                                        {resultado.porcentaje.toFixed(0)}%
+
+                                                    <span
+                                                        className="badge ms-2"
+                                                        style={{
+                                                            background: "#8b5cf6",
+                                                            color: "white"
+                                                        }}
+                                                    >
+                                                        {resultado.porcentaje?.toFixed(0) || 0}%
                                                     </span>
                                                 </div>
-                                                <small style={neonPurple}>
+
+                                                <small style={{ color: "#8b5cf6" }}>
                                                     {formatearFecha(resultado.fecha)}
                                                 </small>
                                             </div>
@@ -206,13 +278,18 @@ export default function Dashboard() {
                                     ))}
                                 </div>
                             )}
-                            <div className="text-center mt-3">
-                                <Link to="/trivia"
+
+                            <div className="mt-3 text-center">
+                                <Link 
+                                    to="/trivia"
                                     className="btn btn-sm"
                                     style={{
                                         background: "#18a0fb",
-                                        color: "white"
-                                    }}>
+                                        color: "white",
+                                        borderRadius: "6px",
+                                        padding: "6px 14px"
+                                    }}
+                                >
                                     Play Trivia
                                 </Link>
                             </div>
@@ -220,28 +297,28 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                {/* SEARCH HISTORY */}
+                {/* Recent searches */}
                 <div className="col-md-12 mb-4">
-                    <div className="card" style={cardStyle}>
-                        <div className="card-header" style={cardHeaderStyle}>
+                    <div className="card">
+                        <div className="card-header">
                             <h5 className="mb-0">🔍 Recent Searches</h5>
                         </div>
                         <div className="card-body">
                             {historialBusquedas.length === 0 ? (
-                                <p className="text-muted">No recent searches.</p>
+                                <p className="text-muted">
+                                    You haven't made any searches yet.{" "}
+                                    <Link to="/catalogo">Search for your favorite game</Link>
+                                </p>
                             ) : (
                                 <div className="d-flex flex-wrap gap-2">
                                     {historialBusquedas.map((item, index) => (
-                                        <span key={index}
-                                            className="badge p-2"
-                                            style={{
-                                                background: "#8b5cf6",
-                                                color: "white",
-                                                fontSize: "14px",
-                                                border: "1px solid #18a0fb"
-                                            }}>
+                                        <Link
+                                            key={index}
+                                            to={`/catalogo?q=${encodeURIComponent(item.busqueda)}`}
+                                            className="badge bg-secondary p-2 text-decoration-none"
+                                        >
                                             {item.busqueda}
-                                        </span>
+                                        </Link>
                                     ))}
                                 </div>
                             )}
@@ -252,3 +329,4 @@ export default function Dashboard() {
         </div>
     );
 }
+
