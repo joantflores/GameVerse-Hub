@@ -72,59 +72,70 @@ button:focus-visible {
 }
 
 
-/* === GAMER THEME REDESIGN v2 === */
+/* === ACCESSIBLE GAMER THEME v3 === */
+/* Global readable text */
 :root {
-  --g-primary: #0ff0fc;        /* neon cyan */
-  --g-secondary: #ff2eec;      /* neon magenta */
-  --g-accent: #7b2ff7;         /* purple neon */
-  --g-bg: #07070a;             /* deep near-black */
-  --g-surface: #111118;        /* dark card surface */
-  --g-text: #e8e8e8;           /* light grey for readability */
-  --g-text-dim: #b8b8b8;       /* dim text */
+  --txt-main: #f5f5f5;
+  --txt-dim: #d0d0d0;
+  --bg-main: #0b0b0e;
+  --bg-surface: #1a1a1e;
+  --primary: #4ea8ff;
+  --primary-hover: #78c0ff;
+  --accent: #c77dff;
+  --danger: #ff4d6d;
+  --success: #4dd67c;
 }
 
-/* GLOBAL */
 body {
-  background: var(--g-bg) !important;
-  color: var(--g-text) !important;
+  background: var(--bg-main) !important;
+  color: var(--txt-main) !important;
   font-family: 'Inter', sans-serif;
 }
 
-/* BUTTONS */
+/* Buttons */
 button {
-  background: linear-gradient(90deg, var(--g-primary), var(--g-secondary)) !important;
+  background: var(--primary) !important;
   color: #000 !important;
-  border: none !important;
-  border-radius: 10px !important;
   padding: 12px 20px !important;
+  border-radius: 10px !important;
   font-weight: 600 !important;
+  border: none !important;
   transition: 0.25s ease !important;
 }
 button:hover {
-  opacity: 0.85 !important;
-  transform: translateY(-3px) !important;
+  background: var(--primary-hover) !important;
+  transform: translateY(-2px) !important;
 }
 
-/* CARDS / BOXES */
-.card, .container, .box {
-  background: var(--g-surface) !important;
-  color: var(--g-text) !important;
+/* Cards */
+.card, .game-card, .box, .container {
+  background: var(--bg-surface) !important;
+  color: var(--txt-main) !important;
   border-radius: 14px !important;
-  padding: 20px !important;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.12) !important;
+  padding: 18px !important;
+  box-shadow: 0 0 20px rgba(78,168,255,0.12) !important;
 }
 
-/* HEADERS */
-h1, h2, h3, h4 {
-  color: var(--g-primary) !important;
-  letter-spacing: 1px !important;
+/* Section-Specific Colors */
+.home-section {
+  background: #101014 !important;
+  color: var(--txt-main) !important;
+}
+.login-section {
+  background: #14141a !important;
+}
+.dashboard-section {
+  background: #111119 !important;
+}
+.cards-section {
+  background: #16161d !important;
 }
 
-/* LINKS */
+/* Links */
 a {
-  color: var(--g-secondary) !important;
+  color: var(--accent) !important;
   text-decoration: none !important;
 }
 a:hover {
-  color: var(--g-primary) !important;
+  color: var(--primary) !important;
 }
