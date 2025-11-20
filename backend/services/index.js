@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
+import gameRouter from "../routes/gameRouter.js";
+import mailRouter from "../controllers/mailController.js"; // default export (router)
+import triviaRouter from "../routes/triviaRouter.js"; // Import trivia router
 import "dotenv/config";
+
 
 const app = express();
 
@@ -29,6 +33,11 @@ app.use(
 );
 
 app.use(express.json());
+
+// Rutas
+app.use("/api", gameRouter);
+app.use("/api/mail", mailRouter);
+app.use("/api/trivia", triviaRouter); // Add trivia router
 
 // Endpoint raíz para evitar "Cannot GET /"
 app.get("/", (req, res) => {
