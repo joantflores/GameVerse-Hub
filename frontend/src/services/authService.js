@@ -8,13 +8,17 @@ import {
 import { auth, db } from "../config/firebase";
 import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 
+// URL del backend desde variables de entorno (Render)
 const BASE_API = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 function backendUrl(path) {
-    if (!BASE_API) return path; 
+    if (!BASE_API) return path;
     return `${BASE_API}${path.startsWith("/") ? "" : "/"}${path}`;
 }
 
+// ------------------------------------------------------------
+// REGISTRO DE USUARIO
+// ------------------------------------------------------------
 export async function registrarUsuario(email, password, displayName) {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -24,6 +28,7 @@ export async function registrarUsuario(email, password, displayName) {
             await updateProfile(user, { displayName });
         }
 
+        // Crear documento del usuario en Firestore
         await setDoc(doc(db, "usuarios", user.uid), {
             email: user.email,
             displayName: displayName || user.email,
@@ -31,8 +36,12 @@ export async function registrarUsuario(email, password, displayName) {
             favoritos: [],
             historialBusquedas: [],
             historialTrivia: [],
+
+            // 👇 PARA CONTROLAR EL PRIMER LOGIN
+            hasLoggedInBefore: false
         });
 
+        // Cerrar sesión para que el usuario luego haga login normal
         await signOut(auth);
 
         return { success: true, user };
@@ -51,17 +60,42 @@ export async function registrarUsuario(email, password, displayName) {
     }
 }
 
-
+// ------------------------------------------------------------
+// INICIAR SESIÓN + ENVÍO DE EMAIL EN PRIMER LOGIN
+// ------------------------------------------------------------
 export async function iniciarSesion(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        // Load Firestore user data
         const userRef = doc(db, "usuarios", user.uid);
-        const userSnap = await getDoc(userRef);
+        const snap = await getDoc(userRef);
 
-        // No longer send welcome email
+        // Si existe y es la primera vez que hace login
+        if (snap.exists() && snap.data().hasLoggedInBefore === false) {
+            try {
+                await fetch(backendUrl("/mail/send-welcome"), {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "x-mail-secret": import.meta.env.VITE_MAIL_SECRET || ""
+                    },
+                    body: JSON.stringify({
+                        email: user.email,
+                        displayName: snap.data().displayName
+                    })
+                });
+
+                console.log("Correo de bienvenida enviado.");
+            } catch (err) {
+                console.error("Error al enviar correo:", err);
+            }
+
+            // Actualizar Firestore para que no vuelva a enviarse
+            await updateDoc(userRef, {
+                hasLoggedInBefore: true
+            });
+        }
 
         return { success: true, user };
 
@@ -79,6 +113,9 @@ export async function iniciarSesion(email, password) {
     }
 }
 
+// ------------------------------------------------------------
+// CERRAR SESIÓN
+// ------------------------------------------------------------
 export async function cerrarSesion() {
     try {
         await signOut(auth);
@@ -88,10 +125,16 @@ export async function cerrarSesion() {
     }
 }
 
+// ------------------------------------------------------------
+// OBSERVAR ESTADO DE AUTENTICACIÓN
+// ------------------------------------------------------------
 export function observarAutenticacion(callback) {
     return onAuthStateChanged(auth, callback);
 }
 
+// ------------------------------------------------------------
+// OBTENER USUARIO DESDE FIRESTORE
+// ------------------------------------------------------------
 export async function obtenerUsuario(uid) {
     try {
         const snap = await getDoc(doc(db, "usuarios", uid));
