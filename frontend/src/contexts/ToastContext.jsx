@@ -1,3 +1,7 @@
+//El ToastContext gestiona todas las notificaciones emergentes de la aplicacion, permitiendo mostrar mensajes de exito, 
+// error o informacion desde cualquier componente. Mantiene una lista de toasts activos, los muestra automaticamente y los elimina despues 
+// de un tiempo configurable o al cerrarlos manualmente. De esta forma, centraliza el sistema de alertas y evita repetir logica en cada modulo.
+
 import React, { createContext, useContext, useState } from "react";
 import Toast from "../components/Toast";
 

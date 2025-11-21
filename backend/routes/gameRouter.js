@@ -1,3 +1,7 @@
+/*Este modulo define todas las rutas del backend relacionadas con videojuegos usando la API de IGDB. 
+Gestiona busquedas, detalles individuales, generos y plataformas, ademas de validar parametros y manejar errores para garantizar respuestas limpias y seguras. 
+Su funcion es central en el proyecto porque actua como puente entre el frontend y el servicio externo de IGDB, permitiendo que la aplicacion muestre informacion de juegos de forma eficiente y estructurada.*/
+
 import express from "express";
 import {
     buscarJuegos,
@@ -7,11 +11,8 @@ import {
 } from "../services/igdbService.js";
 
 const router = express.Router();
-
-// Helper to safely parse ints
 const toInt = v => parseInt(v) || 0;
 
-// --- Juegos (IGDB) ---
 router.get("/juegos", async (req, res) => {
     const nombre = req.query.nombre || "";
     const limit = toInt(req.query.limit) || 20;
@@ -56,7 +57,6 @@ router.get("/juegos/recursos/plataformas", async (req, res) => {
     }
 });
 
-// --- English aliases expected by frontend ---
 router.get("/games", async (req, res) => {
     const search = req.query.search || req.query.nombre || "";
     const limit = toInt(req.query.limit) || 20;

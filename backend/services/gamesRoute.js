@@ -1,3 +1,7 @@
+//Este archivo define una ruta sencilla para buscar videojuegos mediante el servicio de IGDB. 
+//Recibe un nombre desde la consulta, valida que exista y luego utiliza la funcion buscarJuegos para obtener los resultados desde la API externa. 
+// Al mantener la lógica de búsqueda separada en un servicio y manejar aqui solo el enrutamiento y las respuestas HTTP, el proyecto se vuelve mas modular, ordenado y facil de mantener.
+
 import express from "express";
 import { buscarJuegos } from "./igdbService.js";
 

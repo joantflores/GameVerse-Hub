@@ -1,4 +1,9 @@
-﻿import { useEffect, useState } from "react";
+﻿//Este componente administra el catalogo de juegos del frontend, permitiendo buscar titulos, aplicar filtros localmente, 
+// mostrar resultados paginados y gestionar favoritos e historial cuando el usuario esta autenticado. 
+// Ademas, realiza solicitudes al backend para obtener generos y datos de los juegos, controla estados de carga y muestra 
+// mensajes informativos para mejorar la experiencia del usuario.
+
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { getJuegos, obtenerGeneros } from "../services/dataService.js";
 import { useAuth } from "../contexts/AuthContext";
@@ -20,7 +25,7 @@ export default function Catalogo() {
     const { success, error: toastError } = useToast();
     const [favoritos, setFavoritos] = useState([]);
 
-    // Cargar favoritos y géneros cuando el usuario esté autenticado
+    // Cargar favoritos y generos cuando el usuario este autenticado
     useEffect(() => {
         if (usuario) {
             cargarFavoritos();
@@ -42,7 +47,7 @@ export default function Catalogo() {
     };
 
     useEffect(() => {
-        // Allow empty filtro to fetch default games
+
         setLoading(true);
         setPaginaActual(1);
 
@@ -53,8 +58,7 @@ export default function Catalogo() {
                     limit: juegosPorPagina, 
                     offset: 0 
                 });
-                
-                // Apply client-side filters
+
                 let juegosFiltrados = data;
                 
                 if (filtroGenero) {
@@ -76,7 +80,6 @@ export default function Catalogo() {
                 setJuegos(juegosFiltrados);
                 setTotalJuegos(juegosFiltrados.length);
 
-                // Save search history if user authenticated
                 if (usuario && filtro.trim()) {
                     await agregarHistorialBusqueda(usuario.uid, filtro.trim());
                 }

@@ -1,3 +1,6 @@
+//El componente Perfil muestra la informacion basica del usuario autenticado, permitiendo ver su nombre y correo, 
+// y ofreciendo un boton para cerrar sesion; si no hay usuario logueado, muestra un mensaje indicando que debe iniciar sesion para acceder a su perfil
+
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { cerrarSesion } from "../services/authService";

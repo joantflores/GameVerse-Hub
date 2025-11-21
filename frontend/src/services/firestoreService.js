@@ -1,3 +1,8 @@
+// Este modulo gestiona toda la informacion personalizada del usuario en Firestore,
+// incluyendo favoritos, historial de busquedas y resultados de trivia. Gracias a estas
+// funciones, el sistema puede guardar y recuperar las acciones del usuario, mantener
+// persistencia entre sesiones y ofrecer una experiencia personalizada dentro del proyecto.
+
 import { 
     doc, 
     getDoc, 
@@ -78,7 +83,7 @@ export async function eliminarFavorito(uid, juegoId) {
     }
 }
 
-// Agregar búsqueda al historial
+// Agregar busqueda al historial
 export async function agregarHistorialBusqueda(uid, busqueda) {
     try {
         const userRef = doc(db, "usuarios", uid);
@@ -86,7 +91,7 @@ export async function agregarHistorialBusqueda(uid, busqueda) {
         
         const historialActual = userDoc.data()?.historialBusquedas || [];
         
-        // Agregar al inicio y limitar a 20 búsquedas
+        // Agregar al inicio y limitar a 20 busquedas
         const nuevoHistorial = [
             {
                 busqueda,
@@ -114,7 +119,6 @@ export async function agregarHistorialTrivia(uid, resultadoTrivia) {
         
         const historialActual = userDoc.data()?.historialTrivia || [];
         
-        // Agregar al inicio y limitar a 50 resultados
         const nuevoHistorial = [
             {
                 ...resultadoTrivia,
@@ -134,7 +138,7 @@ export async function agregarHistorialTrivia(uid, resultadoTrivia) {
     }
 }
 
-// Obtener historial de búsquedas
+// Obtener historial de busquedas
 export async function obtenerHistorialBusquedas(uid) {
     try {
         const userDoc = await getDoc(doc(db, "usuarios", uid));
@@ -163,4 +167,3 @@ export async function obtenerHistorialTrivia(uid) {
         return { success: false, historial: [], error: error.message };
     }
 }
-

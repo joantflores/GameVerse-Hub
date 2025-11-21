@@ -1,16 +1,12 @@
-// backend/controllers/mailController.js
 import express from "express";
-import { sendWelcomeEmail } from "./../services/emailService.js"; // Ajuste con extensión .js
+import { sendWelcomeEmail } from "./../services/emailService.js"; 
 import dotenv from "dotenv";
 
 dotenv.config();
-
 const router = express.Router();
 
-// Endpoint público controlado para que lo llame tu frontend o el backend (protegido por SECRET opcional)
 router.post("/send-welcome", async (req, res) => {
   try {
-    // Protección simple: si defines MAIL_SECRET en env, requiere header 'x-mail-secret'
     const MAIL_SECRET = process.env.MAIL_SECRET || "";
     if (MAIL_SECRET) {
       const header = req.get("x-mail-secret") || "";
@@ -30,5 +26,4 @@ router.post("/send-welcome", async (req, res) => {
   }
 });
 
-// Exporta router por defecto (esto arregla el error que viste en Render)
 export default router;

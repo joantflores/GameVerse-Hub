@@ -1,3 +1,7 @@
+//El componente Toast muestra notificaciones temporales en pantalla con diferentes estilos segun el tipo de mensaje; 
+// se cierra automaticamente despues de un tiempo configurable o manualmente mediante un boton, 
+// manteniendose fijo en la esquina superior derecha para asegurar su visibilidad
+
 import { useEffect } from "react";
 
 export default function Toast({ mensaje, tipo = "info", mostrar, onCerrar, duracion = 3000 }) {

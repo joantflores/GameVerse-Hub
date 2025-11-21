@@ -1,3 +1,9 @@
+//Este modulo gestiona toda la comunicacion con la API publica de Open Trivia Database, permitiendo obtener preguntas, categorias 
+// y tokens de sesion para evitar repeticiones. Incluye funciones internas para decodificar texto HTML y mezclar aleatoriamente respuestas, 
+// asegurando que las preguntas lleguen limpias y listas para usar en el frontend. 
+// Gracias a este archivo, el proyecto puede ofrecer un sistema de trivia dinamico, consistente y basado en datos reales, 
+// sin necesidad de almacenar preguntas localmente.
+
 import fetch from "node-fetch";
 
 const OPENTDB_BASE_URL = "https://opentdb.com/api.php";

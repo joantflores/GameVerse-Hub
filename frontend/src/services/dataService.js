@@ -1,17 +1,18 @@
-﻿// Función legacy (ya no se usa en producción, pero se mantiene por compatibilidad)
-export function getTrivia() {
-    return new Promise((resolve) => setTimeout(() => resolve(triviaData), 300));
-}
+﻿// Este modulo centraliza todas las funciones que permiten al frontend comunicarse con el backend.
+// Incluye un fetch mejorado que valida respuestas JSON y maneja errores de forma clara,
+// ademas de generar dinamicamente la URL base segun el entorno.
+// Gracias a esto, el proyecto puede obtener juegos, generos, plataformas y preguntas de trivia
+// de forma consistente, evitando fallos por rutas incorrectas y asegurando que todas las llamadas
+// a la API funcionen en cualquier despliegue.
 
-// Helper para validar responses
 async function fetchJson(url) {
     const res = await fetch(url);
     const text = await res.text();
-    // Intentar parsear JSON, si falla arrojar con info
+    
     try {
         const data = text ? JSON.parse(text) : null;
         if (!res.ok) {
-            // Si el servidor responde con error, incluir cuerpo para debugging
+            
             const err = new Error(`HTTP ${res.status} ${res.statusText}`);
             err.status = res.status;
             err.body = data ?? text;
@@ -19,7 +20,6 @@ async function fetchJson(url) {
         }
         return data;
     } catch (parseErr) {
-        // Error al parsear JSON: devolver detalles para depuración
         const err = new Error("Invalid JSON response from " + url);
         err.original = parseErr;
         err.bodyText = text;
@@ -31,16 +31,15 @@ async function fetchJson(url) {
 const BASE_API = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
 export function apiUrl(path) {
-    // normalize
     const base = BASE_API || '';
-    if (!base) return path; // relative paths in dev
-    // if base already contains '/api' and path starts with '/api', avoid duplication
+    if (!base) return path; 
+    
     const baseHasApi = base.endsWith('/api');
     const pathHasApi = path.startsWith('/api');
     if (baseHasApi && pathHasApi) {
         return base + path.slice(4);
     }
-    // ensure single slash join
+
     return `${base}${path.startsWith('/') ? '' : '/'}${path}`;
 }
 

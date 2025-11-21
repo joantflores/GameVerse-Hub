@@ -1,3 +1,8 @@
+//Este componente muestra el panel principal del usuario, cargando desde Firestore su historial de busquedas, 
+// partidas de trivia y juegos favoritos. Presenta estadisticas rapidas, listas recientes y accesos directos, 
+// ademas de manejar estados de carga y mostrar contenido diferente segun si el usuario esta autenticado o no, 
+// ofreciendo una experiencia personalizada y dinamica.
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";

@@ -1,10 +1,11 @@
+//El archivo inicializa Firebase usando las credenciales del proyecto obtenidas desde variables de entorno y configura los servicios principales: 
+// autenticacion y base de datos Firestore. Luego exporta estas instancias para que puedan ser utilizadas en el resto de la aplicacion, 
+// manteniendo la conexion centralizada y segura
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Configuración de Firebase
-// IMPORTANTE: Reemplaza estos valores con los de tu proyecto Firebase
-// Puedes obtenerlos en: https://console.firebase.google.com/
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "your-api-key",
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "your-auth-domain",

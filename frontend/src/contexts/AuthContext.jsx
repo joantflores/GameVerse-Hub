@@ -1,3 +1,8 @@
+//El AuthContext administra el estado global de autenticacion en la aplicacion. 
+// Escucha cambios en Firebase Auth en tiempo real y actualiza automaticamente el usuario conectado, ademas de obtener su informacion 
+// adicional desde Firestore. Provee estos datos a todos los componentes mediante el provider, 
+// permitiendo saber si hay un usuario activo y acceder a su informacion sin repetir logica en cada componente.
+
 import { createContext, useContext, useEffect, useState } from "react";
 import { observarAutenticacion, obtenerUsuario } from "../services/authService";
 

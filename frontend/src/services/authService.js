@@ -1,3 +1,8 @@
+//El modulo authService centraliza toda la logica de autenticacion con Firebase, incluyendo el registro, inicio y cierre de sesion. 
+// Durante el registro, crea la cuenta del usuario, actualiza su perfil y genera su documento en Firestore con informacion basica y 
+// estructuras para futuros datos. Al iniciar sesion, verifica credenciales y obtiene la informacion del usuario desde la base de datos. 
+// Además, expone un observador para detectar cambios de autenticacion en tiempo real, facilitando la sincronizacion del estado global en la aplicacion.
+
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,

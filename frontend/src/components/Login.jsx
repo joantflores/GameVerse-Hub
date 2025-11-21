@@ -1,3 +1,7 @@
+//Este componente maneja tanto el inicio de sesion como el registro, administrando validacion, estados de carga y manejo de errores. 
+// Dependiendo del modo (esRegistro), muestra campos adicionales como el nombre, envia los datos al servicio de autenticacion correspondiente 
+// y ofrece retroalimentacion visual mediante alertas y toasts, redirigiendo al usuario tras una autenticación exitosa.
+
 import React, { useState } from "react";
 import { iniciarSesion, registrarUsuario } from "../services/authService";
 import { useNavigate } from "react-router-dom";

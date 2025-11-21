@@ -1,4 +1,9 @@
-﻿import React, { useState, useEffect } from "react";
+﻿//El componente Trivia permite al usuario configurar y jugar una partida de preguntas sobre videojuegos, 
+// mostrando una barra de progreso, puntaje en tiempo real y retroalimentacion inmediata; al finalizar, 
+// presenta los resultados con porcentaje, mensaje motivacional y la opcion de reiniciar, 
+// ademas de guardar el historial del juego si el usuario ha iniciado sesion
+
+import React, { useState, useEffect } from "react";
 import { getPreguntasTrivia } from "../services/dataService.js";
 import { useAuth } from "../contexts/AuthContext";
 import { agregarHistorialTrivia } from "../services/firestoreService";
@@ -14,7 +19,7 @@ export default function Trivia() {
     const [mostrarConfiguracion, setMostrarConfiguracion] = useState(true);
     const [configuracion, setConfiguracion] = useState({
         cantidad: 10,
-        dificultad: "" // "" = Any Difficulty
+        dificultad: "" 
     });
     const [juegoTerminado, setJuegoTerminado] = useState(false);
 

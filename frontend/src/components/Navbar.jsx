@@ -1,4 +1,8 @@
-﻿import { Link } from "react-router-dom";
+﻿//El componente Navbar muestra una navegacion dinamica que cambia segun el estado de autenticacion del usuario: muestra enlaces basicos como Home, 
+// Catalog y Trivia, agrega Favorites cuando hay sesion activa y muestra opciones de Sign In / Sign Up o el perfil del usuario segun corresponda. 
+// Ademas, integra colapsado responsive con Bootstrap y usa datos provenientes del AuthContext para personalizar la experiencia
+
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function Navbar() {

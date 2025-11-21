@@ -1,4 +1,9 @@
-﻿import fetch from "node-fetch";
+﻿//Este modulo se encarga de interactuar directamente con la API de IGDB utilizando credenciales de Twitch para obtener un token de acceso 
+//y realizar consultas avanzadas sobre videojuegos. Provee funciones para buscar juegos, obtener detalles completos por ID y listar generos y plataformas, 
+// construyendo peticiones POST con campos personalizados para recibir informacion enriquecida. Centralizar toda la logica de comunicacion con IGDB en este servicio mantiene el proyecto modular, 
+// organizado y facilita el mantenimiento y la escalabilidad del backend.
+
+import fetch from "node-fetch";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -8,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-// Verificar que las variables de entorno estén configuradas (sin exponer valores)
+// Verificar que las variables de entorno esten configuradas (sin exponer valores)
 if (!process.env.TWITCH_CLIENT_ID || !process.env.TWITCH_CLIENT_SECRET) {
     console.warn("⚠️  Advertencia: TWITCH_CLIENT_ID o TWITCH_CLIENT_SECRET no configuradas");
 }
@@ -45,7 +50,7 @@ export async function buscarJuegos(nombre, opciones = {}) {
         const { limit = 20, offset = 0 } = opciones;
         const token = await obtenerToken();
 
-        // Campos expandidos para obtener más información
+        // Campos expandidos para obtener mas informacion
         const fields = `name, genres.name, platforms.name, first_release_date, summary, 
             cover.url, rating, rating_count, storyline, involved_companies.company.name,
             screenshots.url, videos.video_id, websites.category, websites.url`;
@@ -112,7 +117,7 @@ export async function obtenerDetalleJuego(juegoId) {
     }
 }
 
-// Obtener géneros disponibles
+// Obtener generos disponibles
 export async function obtenerGeneros() {
     try {
         const token = await obtenerToken();

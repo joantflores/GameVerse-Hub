@@ -1,3 +1,7 @@
+//Este componente muestra la lista de juegos marcados como favoritos por el usuario autenticado, permitiendo ver sus detalles, 
+// navegar al juego seleccionado o eliminarlo de la coleccion. Gestiona la carga desde Firestore, maneja estados y notificaciones, 
+// y ofrece una interfaz clara que organiza los juegos con portada, generos y resumen.
+
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { useToast } from "../contexts/ToastContext";

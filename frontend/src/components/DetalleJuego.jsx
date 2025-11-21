@@ -1,3 +1,7 @@
+//Este componente muestra la informacion completa de un videojuego, cargandola desde la API y permitiendo al usuario autenticado 
+// agregarlo o quitarlo de sus favoritos. Incluye detalles como portada, calificacion, generos, plataformas, desarrolladores, 
+// descripcion, historia y capturas, ademas de manejar estados de carga, errores y validaciones de sesion.
+
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { obtenerDetalleJuego } from "../services/dataService";
